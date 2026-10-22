@@ -169,12 +169,10 @@ section.block .wrap { padding-block: 96px; }
 .divider { border-top: 1px solid var(--line); }
 
 /* Caso de estudio */
-.case {
-  display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.9fr); gap: 56px;
-  padding-block: 64px; border-top: 1px solid var(--line);
-}
+.case { display: grid; gap: 56px; padding-block: 64px; border-top: 1px solid var(--line); }
+.case-main { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.9fr); gap: 56px; }
 .case:first-of-type { border-top: 0; padding-top: 0; }
-.case.flip { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr); }
+.case.flip .case-main { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr); }
 .case.flip .case-visual { order: -1; }
 .case-wide { grid-column: 1 / -1; }
 .case-meta { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; }
@@ -305,7 +303,7 @@ footer .wrap { padding-block: 28px; display: flex; flex-wrap: wrap; justify-cont
 
 /* Responsive */
 @media (max-width: 960px) {
-  .hero .wrap, .case, .case.flip, .contact .wrap { grid-template-columns: minmax(0, 1fr); }
+  .hero .wrap, .case-main, .case.flip .case-main, .contact .wrap { grid-template-columns: minmax(0, 1fr); }
   .case.flip .case-visual { order: 0; }
   .case-visual { position: static; }
   .hero .wrap { padding-block: 56px 72px; gap: 48px; }
@@ -390,6 +388,7 @@ footer .wrap { padding-block: 28px; display: flex; flex-wrap: wrap; justify-cont
 
       <!-- Caso 1: Pedidos -->
       <article class="case">
+        <div class="case-main">
         <div>
           <div class="case-meta">
             <span class="eyebrow">Locales gastronómicos</span>
@@ -463,6 +462,8 @@ footer .wrap { padding-block: 28px; display: flex; flex-wrap: wrap; justify-cont
           <p class="caption">En el celular: menú, personalizar una hamburguesa, promos y carrito.</p>
         </div>
 
+        </div>
+
         <figure class="case-wide wide-fig">
           <div class="browser">
             <div class="bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="label">Panel del dueño · Ketchup Club</span><button class="expand" type="button" data-src="media/pedidos-panel.mp4" data-poster="media/pedidos-panel.jpg" data-title="Panel del dueño · plataforma de pedidos"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 2.5h4v4M6.5 13.5h-4v-4M13.5 2.5 9 7M2.5 13.5 7 9"/></svg>Ver en grande</button></div>
@@ -477,6 +478,7 @@ footer .wrap { padding-block: 28px; display: flex; flex-wrap: wrap; justify-cont
 
       <!-- Caso 2: Mostrador -->
       <article class="case flip">
+        <div class="case-main">
         <div class="case-visual">
           <div class="phone">
             <div class="vid">
@@ -539,6 +541,8 @@ footer .wrap { padding-block: 28px; display: flex; flex-wrap: wrap; justify-cont
 
             <p class="note">Mi rol: diseño y desarrollo completo del producto, desde el modelo de datos y las políticas de seguridad hasta el panel web y la app móvil, con Claude como asistente de programación. El repositorio es privado; puedo mostrar el código en una entrevista.</p>
           </div>
+        </div>
+
         </div>
 
         <figure class="case-wide wide-fig">
