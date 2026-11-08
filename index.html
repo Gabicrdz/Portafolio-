@@ -362,7 +362,7 @@ footer .wrap { padding-block: 28px; display: flex; flex-wrap: wrap; justify-cont
       <div>
         <p class="eyebrow avail"><span class="dot" aria-hidden="true"></span>Desarrollo y diseño web · Formosa, Argentina</p>
         <h1>Diseño y desarrollo sistemas web que los <em>negocios</em> usan todos los días.</h1>
-        <p class="lead">Soy Sergio Gabriel Cardozo, Técnico Superior en Desarrollo de Software. Me ocupo de todo el recorrido: la interfaz, la app móvil, la base de datos y la seguridad. Hice plataformas de pedidos para locales de comida, sistemas de gestión para kioscos y gimnasios, y herramientas para competencias deportivas.</p>
+        <p class="lead">Soy Sergio Gabriel Cardozo, Técnico Superior en Desarrollo de Software. Me ocupo de todo el recorrido: la interfaz, la app móvil, la base de datos y la seguridad. Hice plataformas de pedidos para locales de comida, sistemas de gestión para kioscos, almacenes y gimnasios, y herramientas para competencias deportivas.</p>
         <div class="actions">
           <a class="btn" href="#proyectos">Ver proyectos</a>
           <a class="btn ghost" href="#contacto">Escribime</a>
@@ -632,6 +632,59 @@ footer .wrap { padding-block: 28px; display: flex; flex-wrap: wrap; justify-cont
               <li><b>Arquitectura segura de Electron</b>La interfaz no accede a los archivos ni a internet: todo pasa por canales IPC validados.</li>
               <li><b>Búsqueda sin tildes ni mayúsculas</b>Escribir «martinez» encuentra a Martínez.</li>
               <li><b>33 pruebas automatizadas</b>Verifican cuotas, pagos, ingresos, mensajes de WhatsApp y copias de seguridad.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sistema 2: Control de stock -->
+      <article class="case sys">
+        <div class="sys-head">
+          <div class="case-meta">
+            <span class="eyebrow">Almacenes y kioscos</span>
+            <span class="status info">Windows · sin internet</span>
+          </div>
+          <h3>Control de stock para almacenes y kioscos</h3>
+          <p class="summary">Reemplaza el cuaderno y la planilla de un almacén o kiosco. Muestra en todo momento qué mercadería hay, qué se está terminando, qué se vende más y cuánto deja cada venta.</p>
+        </div>
+
+        <figure class="wide-fig">
+          <div class="browser app-window">
+            <div class="bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="label">Control de stock · aplicación para Windows</span><button class="expand" type="button" data-src="media/control-stock.mp4" data-poster="media/control-stock.jpg" data-title="Control de stock para almacenes y kioscos"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 2.5h4v4M6.5 13.5h-4v-4M13.5 2.5 9 7M2.5 13.5 7 9"/></svg>Ver en grande</button></div>
+            <div class="vid">
+              <video muted loop playsinline preload="metadata" poster="media/control-stock.jpg" aria-label="Recorrido por el sistema de control de stock"><source src="media/control-stock.mp4" type="video/mp4"></video>
+              <button class="vbtn" type="button" aria-label="Reproducir o pausar video"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z"/></svg></button>
+            </div>
+          </div>
+          <figcaption class="caption">Recorrido por las funciones principales: productos, lector de código de barras, entradas, venta por peso, movimientos, reportes, lista de compras y copias de seguridad.</figcaption>
+        </figure>
+
+        <div class="case-main">
+          <div class="sys-col">
+            <div>
+              <h4>Qué hace</h4>
+              <ul class="ticks">
+                <li>Productos con código de barras, categoría, costo y porcentaje de ganancia: el precio de venta se calcula solo. Al pasar un producto por el lector se abre su ficha.</li>
+                <li>Alertas de stock bajo y sin stock, con el valor total de la mercadería al costo.</li>
+                <li>Compras, ventas, mermas, devoluciones y conteos, cada uno en un historial con el saldo. Los movimientos se anulan en lugar de borrarse.</li>
+                <li>Venta por peso para fiambres y productos sueltos, al gramo.</li>
+                <li>Reportes de lo más vendido, la ganancia real por categoría y la mercadería parada.</li>
+                <li>Lista de compras automática: sugiere cuánto pedir de cada producto y se manda al proveedor por WhatsApp, se copia o se imprime.</li>
+                <li>Copias de seguridad automáticas todos los días e instalador propio con el ícono y el nombre del negocio.</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Tecnologías</h4>
+              <div class="chips"><span class="chip">Electron</span><span class="chip">JavaScript</span><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">SQLite · better-sqlite3</span><span class="chip">node:test</span></div>
+            </div>
+          </div>
+          <div>
+            <h4>Aspectos técnicos</h4>
+            <ul class="challenges">
+              <li><b>Stock que se puede auditar</b>No se guarda como un número suelto: se calcula a partir de todos los movimientos, así siempre se sabe de dónde sale.</li>
+              <li><b>Sin errores de redondeo</b>El dinero y las cantidades se guardan como enteros, incluso en las ventas al gramo.</li>
+              <li><b>Actualizaciones seguras</b>La base de datos se actualiza sola con migraciones y la ventana de la aplicación está aislada por seguridad.</li>
+              <li><b>40 pruebas automatizadas</b>Escritas con node:test, revisan el funcionamiento del sistema de forma automática.</li>
             </ul>
           </div>
         </div>
