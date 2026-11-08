@@ -186,6 +186,7 @@ section.block .wrap { padding-block: 96px; }
 .status { font-family: var(--font-mono); font-size: 12px; padding: 4px 8px; border-radius: 999px; border: 1px solid currentColor; }
 .status.live { color: var(--ok); }
 .status.dev { color: var(--warn); }
+.status.info { color: var(--accent); }
 .case h3 { font-size: clamp(28px, 3.4vw, 38px); font-weight: 700; margin-top: 14px; }
 .case .summary { margin-top: 16px; font-size: 18px; color: var(--muted); max-width: 62ch; }
 .case-body { display: grid; gap: 32px; margin-top: 36px; }
@@ -251,6 +252,12 @@ section.block .wrap { padding-block: 96px; }
 .expand svg { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 2; }
 .browser .vid video { aspect-ratio: 1440 / 716; object-fit: cover; object-position: top; }
 .wide-fig { display: grid; gap: 12px; }
+
+/* Sistemas de escritorio */
+.case.sys { gap: 40px; }
+.sys-head .summary { max-width: 70ch; }
+.app-window .vid video { aspect-ratio: 16 / 9; object-fit: cover; }
+.sys-col { display: grid; gap: 32px; align-content: start; }
 
 /* Visor en grande */
 .viewer { border: 0; padding: 0; background: transparent; max-width: min(1400px, 96vw); width: 100%; }
@@ -355,7 +362,7 @@ footer .wrap { padding-block: 28px; display: flex; flex-wrap: wrap; justify-cont
       <div>
         <p class="eyebrow avail"><span class="dot" aria-hidden="true"></span>Desarrollo y diseño web · Formosa, Argentina</p>
         <h1>Diseño y desarrollo sistemas web que los <em>negocios</em> usan todos los días.</h1>
-        <p class="lead">Soy Sergio Gabriel Cardozo, Técnico Superior en Desarrollo de Software. Me ocupo de todo el recorrido: la interfaz, la app móvil, la base de datos y la seguridad. Hice plataformas de pedidos para locales de comida, un sistema de gestión para kioscos y herramientas para competencias deportivas.</p>
+        <p class="lead">Soy Sergio Gabriel Cardozo, Técnico Superior en Desarrollo de Software. Me ocupo de todo el recorrido: la interfaz, la app móvil, la base de datos y la seguridad. Hice plataformas de pedidos para locales de comida, sistemas de gestión para kioscos y gimnasios, y herramientas para competencias deportivas.</p>
         <div class="actions">
           <a class="btn" href="#proyectos">Ver proyectos</a>
           <a class="btn ghost" href="#contacto">Escribime</a>
@@ -568,6 +575,72 @@ footer .wrap { padding-block: 28px; display: flex; flex-wrap: wrap; justify-cont
 
   <div class="divider"></div>
 
+  <section class="block" id="sistemas">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow">Sistemas de escritorio</p>
+          <h2>Programas instalables para negocios</h2>
+        </div>
+        <p>Aplicaciones para Windows que funcionan sin internet y sin abono mensual. Estoy sumando sistemas para otros rubros.</p>
+      </div>
+
+      <!-- Sistema 1: Gimnasios -->
+      <article class="case sys">
+        <div class="sys-head">
+          <div class="case-meta">
+            <span class="eyebrow">Gimnasios</span>
+            <span class="status info">Windows · sin internet</span>
+          </div>
+          <h3>Sistema de gestión para gimnasios</h3>
+          <p class="summary">Muchos gimnasios chicos controlan las cuotas con un cuaderno o una planilla de Excel, y así es difícil saber quién debe, cuánto se cobró en el mes o quién dejó de venir. Desarrollé una aplicación de escritorio instalable que lo resuelve desde la computadora de recepción.</p>
+        </div>
+
+        <figure class="wide-fig">
+          <div class="browser app-window">
+            <div class="bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="label">Gestión de socios · aplicación para Windows</span><button class="expand" type="button" data-src="media/gimnasio.mp4" data-poster="media/gimnasio.jpg" data-title="Sistema de gestión para gimnasios"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 2.5h4v4M6.5 13.5h-4v-4M13.5 2.5 9 7M2.5 13.5 7 9"/></svg>Ver en grande</button></div>
+            <div class="vid">
+              <video muted loop playsinline preload="metadata" poster="media/gimnasio.jpg" aria-label="Recorrido por el sistema de gestión para gimnasios"><source src="media/gimnasio.mp4" type="video/mp4"></video>
+              <button class="vbtn" type="button" aria-label="Reproducir o pausar video"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z"/></svg></button>
+            </div>
+          </div>
+          <figcaption class="caption">Recorrido por las funciones principales: ingreso por DNI, resumen, socios, cobros, pagos, aumento de precios y copias de seguridad.</figcaption>
+        </figure>
+
+        <div class="case-main">
+          <div class="sys-col">
+            <div>
+              <h4>Qué hace</h4>
+              <ul class="ticks">
+                <li>Ingreso por DNI, tipeado o con lector de código de barras: muestra al instante si la cuota está al día, por vencer o vencida.</li>
+                <li>Socios, planes y cobro de cuotas con vencimiento automático. Los pagos se anulan en lugar de borrarse, para cuidar la caja.</li>
+                <li>Panel de resumen: recaudación del mes contra el anterior, estado de las cuotas, socios que dejaron de venir, horarios pico y cumpleaños.</li>
+                <li>Reclamo por WhatsApp en un clic, con el nombre del socio y su vencimiento.</li>
+                <li>Aumento de precios por porcentaje, con redondeo y vista previa antes de aplicar.</li>
+                <li>Copia de seguridad automática por día: guarda las últimas 30 y se restauran desde la misma aplicación.</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Tecnologías</h4>
+              <div class="chips"><span class="chip">Electron</span><span class="chip">JavaScript</span><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">SQLite · better-sqlite3</span><span class="chip">Electron Forge</span><span class="chip">node:test</span></div>
+            </div>
+          </div>
+          <div>
+            <h4>Aspectos técnicos</h4>
+            <ul class="challenges">
+              <li><b>Actualizaciones sin perder datos</b>La base de datos usa migraciones versionadas, así cada versión nueva del sistema se instala sobre la anterior.</li>
+              <li><b>Arquitectura segura de Electron</b>La interfaz no accede a los archivos ni a internet: todo pasa por canales IPC validados.</li>
+              <li><b>Búsqueda sin tildes ni mayúsculas</b>Escribir «martinez» encuentra a Martínez.</li>
+              <li><b>33 pruebas automatizadas</b>Verifican cuotas, pagos, ingresos, mensajes de WhatsApp y copias de seguridad.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
   <section class="block" id="mas">
     <div class="wrap">
       <div class="sec-head">
@@ -652,8 +725,9 @@ footer .wrap { padding-block: 28px; display: flex; flex-wrap: wrap; justify-cont
           <p>Aprendo rápido y me adapto a distintos equipos y formas de trabajo. Cuido tanto cómo se ve y se usa una interfaz como lo que pasa por detrás: datos bien modelados, reglas de seguridad claras y sistemas que siguen andando cuando se cae internet.</p>
           <div class="skills">
             <div><h4>Frontend y diseño</h4><div class="chips"><span class="chip">React</span><span class="chip">Next.js</span><span class="chip">TypeScript</span><span class="chip">JavaScript</span><span class="chip">Tailwind CSS</span><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">Diseño responsive</span></div></div>
-            <div><h4>Backend y datos</h4><div class="chips"><span class="chip">Node.js</span><span class="chip">NestJS</span><span class="chip">Supabase</span><span class="chip">PostgreSQL</span><span class="chip">Prisma</span><span class="chip">SQL / NoSQL</span><span class="chip">APIs REST</span><span class="chip">PHP</span><span class="chip">Python</span></div></div>
+            <div><h4>Backend y datos</h4><div class="chips"><span class="chip">Node.js</span><span class="chip">NestJS</span><span class="chip">Supabase</span><span class="chip">PostgreSQL</span><span class="chip">Prisma</span><span class="chip">SQLite</span><span class="chip">SQL / NoSQL</span><span class="chip">APIs REST</span><span class="chip">PHP</span><span class="chip">Python</span></div></div>
             <div><h4>Móvil</h4><div class="chips"><span class="chip">React Native</span><span class="chip">Expo</span></div></div>
+            <div><h4>Escritorio</h4><div class="chips"><span class="chip">Electron</span><span class="chip">Electron Forge</span></div></div>
             <div><h4>Herramientas</h4><div class="chips"><span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">Vercel</span><span class="chip">Jira</span><span class="chip">Trello</span><span class="chip">Excel</span></div></div>
             <div><h4>Idiomas</h4><div class="chips"><span class="chip">Español nativo</span><span class="chip">Inglés técnico</span></div></div>
           </div>
