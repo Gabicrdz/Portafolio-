@@ -143,28 +143,6 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .hero .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
 .avail { display: inline-flex; align-items: center; gap: 8px; }
 .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 4px color-mix(in srgb, var(--ok) 20%, transparent); }
-
-/* Ticket de pedido */
-.ticket {
-  background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px;
-  box-shadow: 0 24px 48px -32px color-mix(in srgb, var(--fg) 45%, transparent);
-  transform: rotate(1.2deg);
-}
-.ticket-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 13px; color: var(--muted); padding-bottom: 12px; border-bottom: 1px dashed var(--line); }
-.ticket-head strong { color: var(--fg); font-weight: 600; }
-.bubble {
-  margin-top: 14px; padding: 14px 16px; border-radius: 4px 12px 12px 12px;
-  background: color-mix(in srgb, var(--ok) 10%, var(--surface));
-  font-family: var(--font-mono); font-size: 13.5px; line-height: 1.65;
-}
-.bubble .row { display: flex; justify-content: space-between; gap: 12px; font-variant-numeric: tabular-nums; }
-.bubble .row span:first-child { min-width: 0; }
-.bubble .sub { color: var(--muted); font-size: 12.5px; }
-.bubble hr { border: 0; border-top: 1px solid color-mix(in srgb, var(--ok) 30%, transparent); margin: 10px 0; }
-.bubble .total { font-weight: 500; font-size: 15px; }
-.bubble time { display: block; text-align: right; font-size: 11.5px; color: var(--muted); margin-top: 6px; }
-.ticket-note { margin-top: 12px; font-size: 13px; color: var(--muted); }
-
 /* Secciones */
 section.block .wrap { padding-block: 96px; }
 .sec-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 16px 40px; margin-bottom: 48px; }
@@ -362,7 +340,6 @@ footer .wrap { padding-block: 28px; display: flex; flex-wrap: wrap; justify-cont
   .case.flip .case-visual { order: 0; }
   .case-visual { position: static; }
   .hero .wrap { padding-block: 56px 72px; gap: 48px; }
-  .ticket { transform: none; max-width: 440px; }
   .about { grid-template-columns: minmax(0, 1fr); gap: 40px; }
   .photo-col { grid-template-columns: minmax(0, 240px) minmax(0, 1fr); align-items: end; }
 }
@@ -378,6 +355,32 @@ footer .wrap { padding-block: 28px; display: flex; flex-wrap: wrap; justify-cont
   .bar .label { display: none; }
   .bar { justify-content: space-between; }
 }
+
+/* Imagen del inicio */
+.art { margin: 0; display: grid; gap: 14px; position: relative; min-width: 0; }
+.art-cap { font-size: 13px; color: var(--muted); }
+
+.art-code { padding-bottom: 6px; }
+.art-code .art-cap { padding-right: 96px; }
+.ed { background: #1B1517; border: 1px solid #2E2427; border-radius: 14px; overflow: hidden; box-shadow: 0 30px 60px -30px rgba(27, 21, 23, 0.55); }
+.ed-bar { display: flex; align-items: center; gap: 14px; padding: 12px 14px; border-bottom: 1px solid #2E2427; }
+.ed .dots i { background: #3A2E31; }
+.ed-tab { font: 500 12.5px/1 var(--font-mono); color: #EDE3E5; padding: 7px 10px; border-radius: 6px; background: #2A2023; }
+.ed-code { margin: 0; padding: 18px 0; font: 12.5px/1.8 var(--font-mono); color: #EDE3E5; overflow-x: auto; counter-reset: ln; }
+.ed-code code { display: block; min-width: max-content; }
+.ed-code .l { display: block; padding-right: 20px; white-space: pre; }
+.ed-code .l::before { counter-increment: ln; content: counter(ln); display: inline-block; width: 34px; padding-right: 14px; text-align: right; color: #5E5154; }
+.ed-code .k { color: #E8899A; } .ed-code .f { color: #F4C98E; } .ed-code .c { color: #8C7C7F; font-style: italic; } .ed-code .n { color: #F0B7A4; } .ed-code .p { color: #B8ABAE; }
+.ed-caret { display: inline-block; width: 8px; height: 1.1em; background: #E8899A; vertical-align: -0.2em; margin-left: 4px; animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.ed-status { display: flex; flex-wrap: wrap; gap: 6px 16px; padding: 10px 16px; border-top: 1px solid #2E2427; font: 500 11.5px/1 var(--font-mono); color: #A89A9C; }
+.ed-status .okd::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #57C894; margin-right: 7px; }
+.art-code .mini { position: absolute; bottom: 0; right: -20px; width: 96px; background: #000000; border-radius: 22px; padding: 5px; box-shadow: 0 24px 40px -20px rgba(0, 0, 0, 0.6); transform: rotate(4deg); }
+.art-code .mini img { display: block; width: 100%; aspect-ratio: 480 / 1040; object-fit: cover; border-radius: 17px; }
+@media (max-width: 1150px) { .ed-code { font-size: 12px; } .ed-code .l::before { width: 28px; padding-right: 12px; } }
+@media (min-width: 961px) and (max-width: 1150px) { .art-code .mini { display: none; } .art-code .art-cap { padding-right: 0; } }
+@media (max-width: 960px) { .art-code .mini { right: 0; width: 84px; } }
+@media (max-width: 520px) { .art-code .mini { display: none; } .art-code .art-cap { padding-right: 0; } .ed-code { font-size: 11.5px; } }
 </style>
 
 </head>
@@ -410,21 +413,14 @@ footer .wrap { padding-block: 28px; display: flex; flex-wrap: wrap; justify-cont
         </div>
       </div>
 
-      <figure class="ticket" aria-label="Ejemplo de pedido enviado por WhatsApp">
-        <div class="ticket-head"><span><strong>Ketchup Club</strong> · pedido entrante</span><span>WhatsApp</span></div>
-        <div class="bubble">
-          <div><b>Pedido #KC-0142</b></div>
-          <div class="row"><span>1× Doble cheese</span><span>$ 11.200</span></div>
-          <div class="sub">sin pepinos</div>
-          <div class="row"><span>1× Hot burguer</span><span>$ 10.500</span></div>
-          <div class="row"><span>2× Gaseosa 500 ml</span><span>$ 4.400</span></div>
-          <hr>
-          <div class="row sub"><span>Entrega</span><span>Delivery</span></div>
-          <div class="row sub"><span>Pago</span><span>Transferencia</span></div>
-          <div class="row total"><span>Total</span><span>$ 26.100</span></div>
-          <time>21:47</time>
+      <figure class="art art-code">
+        <div class="ed" role="img" aria-label="Editor con un fragmento de código de una plataforma de pedidos">
+          <div class="ed-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="ed-tab">pedidos.ts</span></div>
+          <pre class="ed-code"><code><span class="l"><span class="c">// El total se calcula en el servidor,</span></span><span class="l"><span class="c">// no con lo que manda el navegador.</span></span><span class="l"><span class="k">async function</span> <span class="f">crearPedido</span><span class="p">(</span>local<span class="p">,</span> items<span class="p">)</span> <span class="p">{</span></span><span class="l">  <span class="k">const</span> precios <span class="p">=</span> <span class="k">await</span> db<span class="p">.</span><span class="f">precios</span><span class="p">(</span>local<span class="p">);</span></span><span class="l">  <span class="k">const</span> total <span class="p">=</span> items<span class="p">.</span><span class="f">reduce</span><span class="p">(</span><span class="p">(</span>s<span class="p">,</span> i<span class="p">)</span> <span class="k">=&gt;</span></span><span class="l">    s <span class="p">+</span> precios<span class="p">[</span>i<span class="p">.</span>id<span class="p">]</span> <span class="p">*</span> i<span class="p">.</span>cantidad<span class="p">,</span> <span class="n">0</span><span class="p">);</span></span><span class="l">  <span class="k">return</span> <span class="f">guardar</span><span class="p">({</span> items<span class="p">,</span> total <span class="p">});</span></span><span class="l"><span class="p">}</span><span class="ed-caret" aria-hidden="true"></span></span></code></pre>
+          <div class="ed-status"><span class="okd">Listo</span><span>TypeScript</span><span>Next.js · Supabase</span></div>
         </div>
-        <figcaption class="ticket-note">Así le llega un pedido al local desde mi plataforma de pedidos online. Datos de ejemplo.</figcaption>
+        <div class="mini" aria-hidden="true"><img src="media/pedidos-celular.jpg" alt=""></div>
+        <figcaption class="art-cap">Del código a la pantalla: la misma lógica que corre en mis sistemas.</figcaption>
       </figure>
     </div>
   </section>
