@@ -5,10 +5,10 @@
 <script>try{var t=localStorage.getItem("tema");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Sergio Cardozo</title>
-<meta name="description" content="Portafolio de Sergio Gabriel Cardozo, desarrollador y diseñador web en Formosa, Argentina.">
+<meta name="description" content="Portafolio de Sergio Gabriel Cardozo: desarrollo web y sistemas a medida para negocios, en Formosa, Argentina.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2314181B'/%3E%3Ctext x='32' y='43' font-family='Arial,sans-serif' font-weight='800' font-size='28' text-anchor='middle' fill='%23F2F4F3'%3ESC%3C/text%3E%3C/svg%3E">
-<meta property="og:title" content="Sergio Cardozo · Desarrollo y diseño web">
-<meta property="og:description" content="Plataformas de pedidos, sistemas de gestión y apps móviles para negocios. Formosa, Argentina.">
+<meta property="og:title" content="Sergio Cardozo · Desarrollo web y sistemas a medida">
+<meta property="og:description" content="Páginas web y sistemas a medida para negocios. Formosa, Argentina.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://sergio-cardozo.vercel.app/">
 <meta property="og:image" content="https://sergio-cardozo.vercel.app/media/og-portafolio.png">
@@ -101,10 +101,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 }
 .top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; }
 .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 600; }
-.mono {
-  width: 34px; height: 34px; border-radius: 8px; display: grid; place-items: center;
-  background: var(--fg); color: var(--bg); font-family: var(--font-display); font-weight: 800; font-size: 15px; letter-spacing: -0.03em;
-}
+.avatar { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; display: block; border: 1px solid var(--line); background: var(--accent-soft); }
 .nav { display: flex; align-items: center; gap: 24px; font-size: 15px; }
 .nav a { text-decoration: none; color: var(--muted); transition: color .2s; }
 .nav a:hover { color: var(--fg); }
@@ -387,7 +384,7 @@ footer .wrap { padding-block: 28px; display: flex; flex-wrap: wrap; justify-cont
 <body>
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#inicio" aria-label="Sergio Cardozo, inicio"><span class="mono">SC</span><span>Sergio Cardozo</span></a>
+    <a class="brand" href="#inicio" aria-label="Sergio Cardozo, inicio"><img class="avatar" src="media/avatar.jpg" alt="" width="36" height="36"><span>Sergio Cardozo</span></a>
     <nav class="nav" aria-label="Secciones">
       <a class="hide-sm" href="#proyectos">Proyectos</a>
       <a class="hide-sm" href="#sobre-mi">Sobre mí</a>
@@ -404,9 +401,9 @@ footer .wrap { padding-block: 28px; display: flex; flex-wrap: wrap; justify-cont
   <section class="hero">
     <div class="wrap">
       <div>
-        <p class="eyebrow avail"><span class="dot" aria-hidden="true"></span>Desarrollo y diseño web · Formosa, Argentina</p>
-        <h1>Diseño y desarrollo sistemas web que los <em>negocios</em> usan todos los días.</h1>
-        <p class="lead">Soy Sergio Gabriel Cardozo, Técnico Superior en Desarrollo de Software. Me ocupo de todo el recorrido: la interfaz, la app móvil, la base de datos y la seguridad. Hice plataformas de pedidos para locales de comida, sistemas de gestión para kioscos, almacenes y gimnasios, y herramientas para competencias deportivas.</p>
+        <p class="eyebrow avail"><span class="dot" aria-hidden="true"></span>Desarrollo web y sistemas a medida · Formosa, Argentina</p>
+        <h1>Desarrollo páginas web y sistemas <em>a medida</em> para negocios.</h1>
+        <p class="lead">Soy Sergio Gabriel Cardozo, Técnico Superior en Desarrollo de Software. Me ocupo de todo el proceso, del diseño a la puesta en marcha, para que cada sistema se adapte a cómo trabaja el negocio. Entre mis trabajos hay plataformas de pedidos online, puntos de venta y sistemas de gestión.</p>
         <div class="actions">
           <a class="btn" href="#proyectos">Ver proyectos</a>
           <a class="btn ghost" href="#contacto">Escribime</a>
@@ -458,7 +455,7 @@ footer .wrap { padding-block: 28px; display: flex; flex-wrap: wrap; justify-cont
             <div class="pj-inner">
               <div class="pj-body">
                 <div class="pj-top">
-                  <span class="status live">En línea · 4 demos</span>
+                  <span class="status live">En línea · 3 demos</span>
                   <p class="pj-sum">Cualquier hamburguesería o local gastronómico puede tener su propia página de pedidos, con su marca, sus colores y su menú. El cliente arma el pedido desde el celular y lo manda por WhatsApp. El dueño administra todo desde un panel privado, sin conocimientos técnicos.</p>
                   <p class="note">La pensé como un producto para vender a varios locales: una sola base de código y una sola base de datos sirven a todos los clientes, y cada uno tiene su propio diseño y su propio link.</p>
                 </div>
@@ -523,7 +520,6 @@ footer .wrap { padding-block: 28px; display: flex; flex-wrap: wrap; justify-cont
                     <h4>Ver en vivo</h4>
                     <div class="links">
                       <a href="https://ketchup-club-web.vercel.app" target="_blank" rel="noopener">Ketchup Club <span>· demo base</span></a>
-                      <a href="https://burger-bear.vercel.app" target="_blank" rel="noopener">Burger Bear <span>· hamburguesería</span></a>
                       <a href="https://don-mono-1.vercel.app" target="_blank" rel="noopener">Don Mono 1 <span>· sucursal</span></a>
                       <a href="https://don-mono-2-tan.vercel.app" target="_blank" rel="noopener">Don Mono 2 <span>· sucursal</span></a>
                     </div>
