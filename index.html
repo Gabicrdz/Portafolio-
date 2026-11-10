@@ -259,6 +259,50 @@ section.block .wrap { padding-block: 96px; }
 .app-window .vid video { aspect-ratio: 16 / 9; object-fit: cover; }
 .sys-col { display: grid; gap: 32px; align-content: start; }
 
+/* Proyectos desplegables */
+.pj-list { border-bottom: 1px solid var(--line); }
+.pj { border-top: 1px solid var(--line); }
+.pj-h { margin: 0; font: inherit; letter-spacing: normal; }
+.pj-btn {
+  all: unset; box-sizing: border-box; cursor: pointer; width: 100%;
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 280px) 120px 44px; gap: 24px; align-items: center;
+  padding: 26px 4px; scroll-margin-top: 84px; color: var(--fg);
+}
+.pj-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 8px; }
+.pj-name { font-family: var(--font-display); font-weight: 700; font-size: clamp(22px, 2.6vw, 30px); letter-spacing: -0.02em; line-height: 1.15; transition: color .2s, transform .35s cubic-bezier(.2,.8,.2,1); }
+.pj-btn:hover .pj-name { color: var(--accent); transform: translateX(6px); }
+.pj-rubro { color: var(--muted); font-size: 15px; }
+.pj-tipo { font-family: var(--font-mono); font-size: 12.5px; color: var(--muted); letter-spacing: .04em; text-transform: uppercase; }
+.pj-pm { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); display: grid; place-items: center; transition: background .25s, border-color .25s, color .25s, transform .35s cubic-bezier(.2,.8,.2,1); }
+.pj-pm svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; }
+.pj-btn:hover .pj-pm { border-color: var(--fg); }
+.pj.open .pj-pm { background: var(--fg); border-color: var(--fg); color: var(--bg); transform: rotate(45deg); }
+.pj-acc { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .5s cubic-bezier(.2,.8,.2,1); }
+.pj.open .pj-acc { grid-template-rows: 1fr; }
+.pj-inner { overflow: hidden; min-height: 0; }
+.pj-body { display: grid; gap: 40px; padding: 4px 4px 56px; }
+.pj-top { display: grid; gap: 16px; justify-items: start; }
+.pj-sum { font-size: 18px; line-height: 1.6; max-width: 70ch; }
+.pj-top .note { max-width: 80ch; }
+.pj h4 { font: 600 13px/1.2 var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
+.pj-media { display: grid; gap: 32px; align-items: start; }
+.pj-media.duo { grid-template-columns: minmax(0, 260px) minmax(0, 1fr); }
+.pj-fig { display: grid; gap: 12px; justify-items: stretch; }
+.pj-media .phone { max-width: 260px; }
+.pj-cols, .pj-foot { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; align-items: start; }
+.challenges.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.pj-more { margin-top: 32px; max-width: 70ch; font-size: 15.5px; color: var(--muted); }
+@media (max-width: 860px) {
+  .pj-btn { grid-template-columns: minmax(0, 1fr) 44px; gap: 4px 16px; padding: 22px 4px; }
+  .pj-rubro { grid-column: 1; grid-row: 2; font-size: 14.5px; }
+  .pj-tipo { display: none; }
+  .pj-pm { grid-column: 2; grid-row: 1 / 3; }
+  .pj-media.duo, .pj-cols, .pj-foot, .challenges.two { grid-template-columns: minmax(0, 1fr); }
+  .pj-media .phone { justify-self: center; width: 100%; }
+  .pj-fig { justify-items: center; }
+  .pj-fig .browser { justify-self: stretch; width: 100%; }
+}
+
 /* Visor en grande */
 .viewer { border: 0; padding: 0; background: transparent; max-width: min(1400px, 96vw); width: 100%; }
 .viewer::backdrop { background: var(--scrim); }
@@ -394,416 +438,459 @@ footer .wrap { padding-block: 28px; display: flex; flex-wrap: wrap; justify-cont
     <div class="wrap">
       <div class="sec-head">
         <div>
-          <p class="eyebrow">Proyectos destacados</p>
-          <h2>Dos productos pensados para vender a muchos negocios</h2>
+          <p class="eyebrow">Proyectos</p>
+          <h2>Lo que construí</h2>
         </div>
-        <p>Los diseñé y programé de punta a punta: el modelo de datos, las reglas de seguridad, el panel web y la experiencia en el celular.</p>
+        <p>Plataformas web, apps y sistemas de escritorio para negocios. Tocá un proyecto para ver el video y todos los detalles.</p>
       </div>
 
-      <!-- Caso 1: Pedidos -->
-      <article class="case">
-        <div class="case-main">
-        <div>
-          <div class="case-meta">
-            <span class="eyebrow">Locales gastronómicos</span>
-            <span class="status live">En línea · 4 demos</span>
-          </div>
-          <h3>Plataforma de pedidos online para locales de comida</h3>
-          <p class="summary">Cualquier hamburguesería o local gastronómico puede tener su propia página de pedidos, con su marca, sus colores y su menú. El cliente arma el pedido desde el celular y lo manda por WhatsApp. El dueño administra todo desde un panel privado, sin conocimientos técnicos.</p>
-
-          <div class="case-body">
-            <p class="note">La pensé como un producto para vender a varios locales: una sola base de código y una sola base de datos sirven a todos los clientes, y cada uno tiene su propio diseño y su propio link.</p>
-
-            <div class="feat-cols">
-              <div>
-                <h4>Para el cliente</h4>
-                <ul class="ticks">
+      <div class="pj-list">
+        <div class="pj" id="p-pedidos">
+          <h3 class="pj-h">
+            <button class="pj-btn" type="button" aria-expanded="false" aria-controls="pp-pedidos">
+              <span class="pj-name">Plataforma de pedidos</span>
+              <span class="pj-rubro">Locales de comida</span>
+              <span class="pj-tipo">Web</span>
+              <span class="pj-pm" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 3v10M3 8h10"/></svg></span>
+            </button>
+          </h3>
+          <div class="pj-acc" id="pp-pedidos" role="region" aria-label="Plataforma de pedidos" inert>
+            <div class="pj-inner">
+              <div class="pj-body">
+                <div class="pj-top">
+                  <span class="status live">En línea · 4 demos</span>
+                  <p class="pj-sum">Cualquier hamburguesería o local gastronómico puede tener su propia página de pedidos, con su marca, sus colores y su menú. El cliente arma el pedido desde el celular y lo manda por WhatsApp. El dueño administra todo desde un panel privado, sin conocimientos técnicos.</p>
+                  <p class="note">La pensé como un producto para vender a varios locales: una sola base de código y una sola base de datos sirven a todos los clientes, y cada uno tiene su propio diseño y su propio link.</p>
+                </div>
+                <div class="pj-media duo">
+              <figure class="pj-fig">
+                <div class="phone">
+                  <div class="vid">
+                    <video muted loop playsinline preload="none" poster="media/pedidos-celular.jpg" aria-label="Recorrido por la página de pedidos de Ketchup Club en el celular"><source src="media/pedidos-celular.mp4" type="video/mp4"></video>
+                    <button class="vbtn" type="button" aria-label="Reproducir o pausar video"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z"/></svg></button>
+                  </div>
+                </div>
+                <figcaption class="caption">En el celular: menú, personalizar una hamburguesa, promos y carrito.</figcaption>
+              </figure>
+              <figure class="pj-fig">
+                <div class="browser">
+                  <div class="bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="label">Panel del dueño · Ketchup Club</span><button class="expand" type="button" data-src="media/pedidos-panel.mp4" data-poster="media/pedidos-panel.jpg" data-title="Panel del dueño · plataforma de pedidos"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 2.5h4v4M6.5 13.5h-4v-4M13.5 2.5 9 7M2.5 13.5 7 9"/></svg>Ver en grande</button></div>
+                  <div class="vid">
+                    <video muted loop playsinline preload="none" poster="media/pedidos-panel.jpg" aria-label="Recorrido por el panel de administración del dueño"><source src="media/pedidos-panel.mp4" type="video/mp4"></video>
+                    <button class="vbtn" type="button" aria-label="Reproducir o pausar video"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z"/></svg></button>
+                  </div>
+                </div>
+                <figcaption class="caption">Panel del dueño: menú y precios, ingredientes, extras, promos, carrusel, datos del local y horarios. Video acelerado.</figcaption>
+              </figure>
+                </div>
+                <div class="pj-cols">
+                  <div>
+                    <h4>Para el cliente</h4>
+                    <ul class="ticks">
                   <li>Menú por categorías con fotos, ingredientes y precios.</li>
                   <li>Carrito con extras, ingredientes para sacar y opciones con precio.</li>
                   <li>Pedido armado solo y enviado por WhatsApp con código, total, entrega y pago.</li>
                   <li>Delivery o retiro, selector de sucursales, mapa, horarios y redes.</li>
                   <li>Fuera de horario se ve el menú, pero no se pueden mandar pedidos.</li>
                 </ul>
-              </div>
-              <div>
-                <h4>Para el dueño</h4>
-                <ul class="ticks">
+                  </div>
+                  <div>
+                    <h4>Para el dueño</h4>
+                    <ul class="ticks">
                   <li>Edita productos, precios, fotos, promos y carrusel.</li>
                   <li>Marca productos agotados y abre o cierra el local con un toque.</li>
                   <li>Horario semanal con hasta dos turnos por día.</li>
                   <li>Historial de pedidos: vendido o cancelado.</li>
                   <li>Estadísticas de 1, 7 y 30 días, ticket promedio y horarios pico.</li>
                 </ul>
+                  </div>
+                </div>
+                <div>
+                  <h4>Desafíos que resolví</h4>
+                  <ul class="challenges two">
+                  <li><b>Muchos clientes, una sola base de datos</b>Cada fila pertenece a su local y las reglas de seguridad de PostgreSQL (RLS) garantizan que cada dueño solo vea y edite lo suyo.</li>
+                  <li><b>Precios a prueba de manipulación</b>Los pedidos se registran con una función de PostgreSQL que recalcula los precios desde la base, sin confiar en el navegador, y limita los envíos masivos.</li>
+                  <li><b>Un diseño distinto por cliente</b>Marca, colores, tipografías y logo configurables desde el mismo código, cada local publicado en su propio proyecto de Vercel.</li>
+                  <li><b>Horarios que cruzan la medianoche</b>Turnos en hora argentina, incluidos los que terminan pasadas las 00:00, recalculados en vivo en el navegador.</li>
+                </ul>
+                </div>
+                <div class="pj-foot">
+                  <div>
+                    <h4>Tecnologías</h4>
+                    <div class="chips"><span class="chip">Next.js 15</span><span class="chip">React 19</span><span class="chip">TypeScript</span><span class="chip">Tailwind CSS v4</span><span class="chip">Supabase</span><span class="chip">PostgreSQL · RLS</span><span class="chip">Zustand</span><span class="chip">Vercel</span></div>
+                  </div>
+                  <div>
+                    <h4>Ver en vivo</h4>
+                    <div class="links">
+                      <a href="https://ketchup-club-web.vercel.app" target="_blank" rel="noopener">Ketchup Club <span>· demo base</span></a>
+                      <a href="https://burger-bear.vercel.app" target="_blank" rel="noopener">Burger Bear <span>· hamburguesería</span></a>
+                      <a href="https://don-mono-1.vercel.app" target="_blank" rel="noopener">Don Mono 1 <span>· sucursal</span></a>
+                      <a href="https://don-mono-2-tan.vercel.app" target="_blank" rel="noopener">Don Mono 2 <span>· sucursal</span></a>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-
-            <div>
-              <h4>Desafíos que resolví</h4>
-              <ul class="challenges">
-                <li><b>Muchos clientes, una sola base de datos</b>Cada fila pertenece a su local y las reglas de seguridad de PostgreSQL (RLS) garantizan que cada dueño solo vea y edite lo suyo.</li>
-                <li><b>Precios a prueba de manipulación</b>Los pedidos se registran con una función de PostgreSQL que recalcula los precios desde la base, sin confiar en el navegador, y limita los envíos masivos.</li>
-                <li><b>Un diseño distinto por cliente</b>Marca, colores, tipografías y logo configurables desde el mismo código, cada local publicado en su propio proyecto de Vercel.</li>
-                <li><b>Horarios que cruzan la medianoche</b>Turnos en hora argentina, incluidos los que terminan pasadas las 00:00, recalculados en vivo en el navegador.</li>
-              </ul>
-            </div>
-
-            <div>
-              <h4>Tecnologías</h4>
-              <div class="chips">
-                <span class="chip">Next.js 15</span><span class="chip">React 19</span><span class="chip">TypeScript</span><span class="chip">Tailwind CSS v4</span><span class="chip">Supabase</span><span class="chip">PostgreSQL · RLS</span><span class="chip">Zustand</span><span class="chip">Vercel</span>
+          </div>
+        </div>
+        <div class="pj" id="p-caja">
+          <h3 class="pj-h">
+            <button class="pj-btn" type="button" aria-expanded="false" aria-controls="pp-caja">
+              <span class="pj-name">Caja</span>
+              <span class="pj-rubro">Punto de venta para locales de comida</span>
+              <span class="pj-tipo">Escritorio</span>
+              <span class="pj-pm" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 3v10M3 8h10"/></svg></span>
+            </button>
+          </h3>
+          <div class="pj-acc" id="pp-caja" role="region" aria-label="Caja" inert>
+            <div class="pj-inner">
+              <div class="pj-body">
+                <div class="pj-top">
+                  <span class="status info">Windows · sin internet</span>
+                  <p class="pj-sum">Pensada para rotiserías, pizzerías, hamburgueserías y cafeterías. Cubre todo el día del mostrador: tomar el pedido, cobrar, avisar a la cocina, imprimir el ticket, cerrar la caja y ver cómo se vendió.</p>
+                </div>
+                <div class="pj-media">
+              <figure class="pj-fig">
+                <div class="browser app-window">
+                  <div class="bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="label">Caja · aplicación para Windows</span><button class="expand" type="button" data-src="media/caja.mp4" data-poster="media/caja.jpg" data-title="Caja: punto de venta para locales de comida"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 2.5h4v4M6.5 13.5h-4v-4M13.5 2.5 9 7M2.5 13.5 7 9"/></svg>Ver en grande</button></div>
+                  <div class="vid">
+                    <video muted loop playsinline preload="none" poster="media/caja.jpg" aria-label="Recorrido por el punto de venta Caja"><source src="media/caja.mp4" type="video/mp4"></video>
+                    <button class="vbtn" type="button" aria-label="Reproducir o pausar video"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z"/></svg></button>
+                  </div>
+                </div>
+                <figcaption class="caption">Recorrido por las funciones principales: ingreso con PIN, venta, cobro, comanda y ticket, cocina, cierre de caja, reportes y clientes.</figcaption>
+              </figure>
+                </div>
+                <div class="pj-cols">
+                  <div>
+                    <h4>Qué hace</h4>
+                    <ul class="ticks">
+                  <li>Venta táctil con tamaños, agregados y notas para la cocina, para mostrador, para llevar, delivery o mesa.</li>
+                  <li>Cobro en efectivo con vuelto, transferencia, débito, crédito, QR o combinando medios.</li>
+                  <li>Tablero de cocina con el estado de cada pedido, y comandas y tickets para impresora térmica o en PDF.</li>
+                  <li>Apertura y cierre de caja con arqueo: muestra si sobra o falta plata.</li>
+                  <li>Usuarios con PIN y permisos para el dueño y los cajeros.</li>
+                  <li>Agenda de clientes de delivery que se completa sola con el teléfono.</li>
+                  <li>Reportes con gráficos: ventas por día y por hora, medios de pago, lo más vendido y comparación con el período anterior.</li>
+                </ul>
+                  </div>
+                  <div>
+                    <h4>Aspectos técnicos</h4>
+                    <ul class="challenges">
+                  <li><b>Interfaz web moderna en el escritorio</b>React, TypeScript, Tailwind y shadcn/ui sobre Electron, con TanStack Query para manejar los datos.</li>
+                  <li><b>Datos validados y tipados</b>Zod valida los datos y Drizzle da consultas tipadas sobre SQLite. La base se actualiza con 6 migraciones versionadas.</li>
+                  <li><b>Los datos quedan en el local</b>Funciona sin internet, con copias de seguridad automáticas cada día que se restauran desde el sistema.</li>
+                  <li><b>74 pruebas automatizadas</b>Escritas con Vitest.</li>
+                </ul>
+                  </div>
+                </div>
+                <div>
+                  <h4>Tecnologías</h4>
+                  <div class="chips"><span class="chip">Electron</span><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">Tailwind CSS</span><span class="chip">shadcn/ui</span><span class="chip">TanStack Query</span><span class="chip">Zod</span><span class="chip">SQLite · Drizzle</span><span class="chip">Vitest</span></div>
+                </div>
               </div>
             </div>
-
-            <div>
-              <h4>Ver en vivo</h4>
-              <div class="links">
-                <a href="https://ketchup-club-web.vercel.app" target="_blank" rel="noopener">Ketchup Club <span>· demo base</span></a>
-                <a href="https://burger-bear.vercel.app" target="_blank" rel="noopener">Burger Bear <span>· hamburguesería</span></a>
-                <a href="https://don-mono-1.vercel.app" target="_blank" rel="noopener">Don Mono 1 <span>· sucursal</span></a>
-                <a href="https://don-mono-2-tan.vercel.app" target="_blank" rel="noopener">Don Mono 2 <span>· sucursal</span></a>
-              </div>
-            </div>
           </div>
         </div>
-
-        <div class="case-visual">
-          <div class="phone">
-            <div class="vid">
-              <video muted loop playsinline preload="metadata" poster="media/pedidos-celular.jpg" aria-label="Recorrido por la página de pedidos de Ketchup Club en el celular"><source src="media/pedidos-celular.mp4" type="video/mp4"></video>
-              <button class="vbtn" type="button" aria-label="Reproducir o pausar video"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z"/></svg></button>
-            </div>
-          </div>
-          <p class="caption">En el celular: menú, personalizar una hamburguesa, promos y carrito.</p>
-        </div>
-
-        </div>
-
-        <figure class="case-wide wide-fig">
-          <div class="browser">
-            <div class="bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="label">Panel del dueño · Ketchup Club</span><button class="expand" type="button" data-src="media/pedidos-panel.mp4" data-poster="media/pedidos-panel.jpg" data-title="Panel del dueño · plataforma de pedidos"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 2.5h4v4M6.5 13.5h-4v-4M13.5 2.5 9 7M2.5 13.5 7 9"/></svg>Ver en grande</button></div>
-            <div class="vid">
-              <video muted loop playsinline preload="metadata" poster="media/pedidos-panel.jpg" aria-label="Recorrido por el panel de administración del dueño"><source src="media/pedidos-panel.mp4" type="video/mp4"></video>
-              <button class="vbtn" type="button" aria-label="Reproducir o pausar video"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z"/></svg></button>
-            </div>
-          </div>
-          <figcaption class="caption">Panel del dueño desde la computadora: menú y precios, ingredientes, extras, promos, carrusel de inicio, datos del local y horarios. Video acelerado.</figcaption>
-        </figure>
-      </article>
-
-      <!-- Caso 2: Mostrador -->
-      <article class="case flip">
-        <div class="case-main">
-        <div class="case-visual">
-          <div class="phone">
-            <div class="vid">
-              <video muted loop playsinline preload="metadata" poster="media/mostrador-caja.jpg" aria-label="Venta completa en la app de caja de Mostrador"><source src="media/mostrador-caja.mp4" type="video/mp4"></video>
-              <button class="vbtn" type="button" aria-label="Reproducir o pausar video"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z"/></svg></button>
-            </div>
-          </div>
-          <p class="caption">App de caja: buscar productos, cobrar en efectivo, QR o fiado, y compartir el comprobante.</p>
-        </div>
-
-        <div>
-          <div class="case-meta">
-            <span class="eyebrow">Kioscos y minimarkets</span>
-            <span class="status dev">Prototipo funcional · en desarrollo</span>
-          </div>
-          <h3>Mostrador: gestión para kioscos y minimarkets</h3>
-          <p class="summary">Un kiosco suele llevar el stock, los fiados y la caja en cuadernos o planillas. Mostrador junta todo en un panel web y una app de caja para el celular. Muchos comercios comparten la misma base de datos y cada uno ve solo su información.</p>
-
-          <div class="case-body">
-            <div class="feat-cols">
-              <div>
-                <h4>Qué hace</h4>
-                <ul class="ticks">
+        <div class="pj" id="p-mostrador">
+          <h3 class="pj-h">
+            <button class="pj-btn" type="button" aria-expanded="false" aria-controls="pp-mostrador">
+              <span class="pj-name">Mostrador</span>
+              <span class="pj-rubro">Kioscos y minimarkets</span>
+              <span class="pj-tipo">Web + móvil</span>
+              <span class="pj-pm" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 3v10M3 8h10"/></svg></span>
+            </button>
+          </h3>
+          <div class="pj-acc" id="pp-mostrador" role="region" aria-label="Mostrador" inert>
+            <div class="pj-inner">
+              <div class="pj-body">
+                <div class="pj-top">
+                  <span class="status dev">Prototipo funcional · en desarrollo</span>
+                  <p class="pj-sum">Un kiosco suele llevar el stock, los fiados y la caja en cuadernos o planillas. Mostrador junta todo en un panel web y una app de caja para el celular. Muchos comercios comparten la misma base de datos y cada uno ve solo su información.</p>
+                </div>
+                <div class="pj-media duo">
+              <figure class="pj-fig">
+                <div class="phone">
+                  <div class="vid">
+                    <video muted loop playsinline preload="none" poster="media/mostrador-caja.jpg" aria-label="Venta completa en la app de caja de Mostrador"><source src="media/mostrador-caja.mp4" type="video/mp4"></video>
+                    <button class="vbtn" type="button" aria-label="Reproducir o pausar video"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z"/></svg></button>
+                  </div>
+                </div>
+                <figcaption class="caption">App de caja: buscar productos, cobrar en efectivo, QR o fiado, y compartir el comprobante.</figcaption>
+              </figure>
+              <figure class="pj-fig">
+                <div class="browser">
+                  <div class="bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="label">Mostrador · panel web del comercio</span><button class="expand" type="button" data-src="media/mostrador-panel.mp4" data-poster="media/mostrador-panel.jpg" data-title="Mostrador · panel web"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 2.5h4v4M6.5 13.5h-4v-4M13.5 2.5 9 7M2.5 13.5 7 9"/></svg>Ver en grande</button></div>
+                  <div class="vid">
+                    <video muted loop playsinline preload="none" poster="media/mostrador-panel.jpg" aria-label="Recorrido por el panel web de Mostrador"><source src="media/mostrador-panel.mp4" type="video/mp4"></video>
+                    <button class="vbtn" type="button" aria-label="Reproducir o pausar video"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z"/></svg></button>
+                  </div>
+                </div>
+                <figcaption class="caption">Panel web: depósito con vencimientos, precios y combos, fiados, caja, gastos, reportes en PDF y Excel, y equipo con Mercado Pago. Video acelerado.</figcaption>
+              </figure>
+                </div>
+                <div class="pj-cols">
+                  <div>
+                    <h4>Qué hace</h4>
+                    <ul class="ticks">
                   <li>Caja en el celular: escaneo con la cámara, cobro en efectivo, tarjeta, transferencia, fiado o QR de Mercado Pago, y ticket.</li>
                   <li>Funciona sin conexión y sincroniza las ventas después.</li>
                   <li>Inventario por lotes con FIFO, alertas de vencimiento y de stock bajo.</li>
                   <li>Combos y productos por peso (kg y litros).</li>
                 </ul>
-              </div>
-              <div>
-                <h4>Gestión del negocio</h4>
-                <ul class="ticks">
+                  </div>
+                  <div>
+                    <h4>Gestión del negocio</h4>
+                    <ul class="ticks">
                   <li>Fiados con límite de crédito, gastos y sesiones de caja.</li>
                   <li>Reportes de ganancia y márgenes en PDF y Excel.</li>
                   <li>Roles Superadmin, Owner y Employee: el empleado no ve costos.</li>
                   <li>Alta de cuentas nuevas con aprobación.</li>
                 </ul>
+                  </div>
+                </div>
+                <div>
+                  <h4>Aspectos técnicos</h4>
+                  <ul class="challenges two">
+                  <li><b>Aislamiento entre comercios</b>Row Level Security en PostgreSQL, validada con pruebas SQL: un comercio no puede leer ni modificar datos de otro.</li>
+                  <li><b>La lógica crítica vive en la base</b>Cada venta pasa por una función transaccional que descuenta stock, desarma combos, actualiza fiados y rechaza operaciones inválidas o manipuladas.</li>
+                  <li><b>Cobro con QR de Mercado Pago</b>OAuth por comercio, QR dinámico, webhook de confirmación y actualización en tiempo real con Edge Functions y Supabase Realtime.</li>
+                  <li><b>Ventas sin conexión</b>Cola local con reintentos y manejo de ventas rechazadas; cortes de día y mes siempre en hora argentina.</li>
+                </ul>
+                </div>
+                <div class="pj-foot">
+                  <div>
+                    <h4>Tecnologías</h4>
+                    <div class="stack-groups">
+                      <div><span class="lbl">Web</span><div class="chips"><span class="chip">Next.js 15</span><span class="chip">React 19</span><span class="chip">TypeScript</span><span class="chip">Tailwind v4</span><span class="chip">TanStack Query</span><span class="chip">ExcelJS</span></div></div>
+                      <div><span class="lbl">Móvil</span><div class="chips"><span class="chip">Expo SDK 52</span><span class="chip">React Native</span><span class="chip">Expo Router</span><span class="chip">Expo Camera</span><span class="chip">Expo Print</span></div></div>
+                      <div><span class="lbl">Backend</span><div class="chips"><span class="chip">Supabase</span><span class="chip">PostgreSQL · RLS</span><span class="chip">Realtime</span><span class="chip">Edge Functions</span></div></div>
+                      <div><span class="lbl">Integraciones</span><div class="chips"><span class="chip">Mercado Pago</span><span class="chip">Google OAuth</span></div></div>
+                    </div>
+                  </div>
+                  <div>
+                    <h4>Mi rol</h4>
+                    <p class="note">Diseño y desarrollo completo del producto, desde el modelo de datos y las políticas de seguridad hasta el panel web y la app móvil, con Claude como asistente de programación. El repositorio es privado; puedo mostrar el código en una entrevista.</p>
+                  </div>
+                </div>
               </div>
             </div>
-
-            <div>
-              <h4>Aspectos técnicos</h4>
-              <ul class="challenges">
-                <li><b>Aislamiento entre comercios</b>Row Level Security en PostgreSQL, validada con pruebas SQL: un comercio no puede leer ni modificar datos de otro.</li>
-                <li><b>La lógica crítica vive en la base</b>Cada venta pasa por una función transaccional que descuenta stock, desarma combos, actualiza fiados y rechaza operaciones inválidas o manipuladas.</li>
-                <li><b>Cobro con QR de Mercado Pago</b>OAuth por comercio, QR dinámico, webhook de confirmación y actualización en tiempo real con Edge Functions y Supabase Realtime.</li>
-                <li><b>Ventas sin conexión</b>Cola local con reintentos y manejo de ventas rechazadas; cortes de día y mes siempre en hora argentina.</li>
-              </ul>
-            </div>
-
-            <div>
-              <h4>Tecnologías</h4>
-              <div class="stack-groups">
-                <div><span class="lbl">Web</span><div class="chips"><span class="chip">Next.js 15</span><span class="chip">React 19</span><span class="chip">TypeScript</span><span class="chip">Tailwind v4</span><span class="chip">TanStack Query</span><span class="chip">ExcelJS</span></div></div>
-                <div><span class="lbl">Móvil</span><div class="chips"><span class="chip">Expo SDK 52</span><span class="chip">React Native</span><span class="chip">Expo Router</span><span class="chip">Expo Camera</span><span class="chip">Expo Print</span></div></div>
-                <div><span class="lbl">Backend</span><div class="chips"><span class="chip">Supabase</span><span class="chip">PostgreSQL · RLS</span><span class="chip">Realtime</span><span class="chip">Edge Functions</span></div></div>
-                <div><span class="lbl">Integraciones</span><div class="chips"><span class="chip">Mercado Pago</span><span class="chip">Google OAuth</span></div></div>
+          </div>
+        </div>
+        <div class="pj" id="p-stock">
+          <h3 class="pj-h">
+            <button class="pj-btn" type="button" aria-expanded="false" aria-controls="pp-stock">
+              <span class="pj-name">Control de stock</span>
+              <span class="pj-rubro">Almacenes y kioscos</span>
+              <span class="pj-tipo">Escritorio</span>
+              <span class="pj-pm" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 3v10M3 8h10"/></svg></span>
+            </button>
+          </h3>
+          <div class="pj-acc" id="pp-stock" role="region" aria-label="Control de stock" inert>
+            <div class="pj-inner">
+              <div class="pj-body">
+                <div class="pj-top">
+                  <span class="status info">Windows · sin internet</span>
+                  <p class="pj-sum">Reemplaza el cuaderno y la planilla de un almacén o kiosco. Muestra en todo momento qué mercadería hay, qué se está terminando, qué se vende más y cuánto deja cada venta.</p>
+                </div>
+                <div class="pj-media">
+              <figure class="pj-fig">
+                <div class="browser app-window">
+                  <div class="bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="label">Control de stock · aplicación para Windows</span><button class="expand" type="button" data-src="media/control-stock.mp4" data-poster="media/control-stock.jpg" data-title="Control de stock para almacenes y kioscos"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 2.5h4v4M6.5 13.5h-4v-4M13.5 2.5 9 7M2.5 13.5 7 9"/></svg>Ver en grande</button></div>
+                  <div class="vid">
+                    <video muted loop playsinline preload="none" poster="media/control-stock.jpg" aria-label="Recorrido por el sistema de control de stock"><source src="media/control-stock.mp4" type="video/mp4"></video>
+                    <button class="vbtn" type="button" aria-label="Reproducir o pausar video"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z"/></svg></button>
+                  </div>
+                </div>
+                <figcaption class="caption">Recorrido por las funciones principales: productos, lector de código de barras, entradas, venta por peso, movimientos, reportes, lista de compras y copias de seguridad.</figcaption>
+              </figure>
+                </div>
+                <div class="pj-cols">
+                  <div>
+                    <h4>Qué hace</h4>
+                    <ul class="ticks">
+                  <li>Productos con código de barras, categoría, costo y porcentaje de ganancia: el precio de venta se calcula solo. Al pasar un producto por el lector se abre su ficha.</li>
+                  <li>Alertas de stock bajo y sin stock, con el valor total de la mercadería al costo.</li>
+                  <li>Compras, ventas, mermas, devoluciones y conteos, cada uno en un historial con el saldo. Los movimientos se anulan en lugar de borrarse.</li>
+                  <li>Venta por peso para fiambres y productos sueltos, al gramo.</li>
+                  <li>Reportes de lo más vendido, la ganancia real por categoría y la mercadería parada.</li>
+                  <li>Lista de compras automática: sugiere cuánto pedir de cada producto y se manda al proveedor por WhatsApp, se copia o se imprime.</li>
+                  <li>Copias de seguridad automáticas todos los días e instalador propio con el ícono y el nombre del negocio.</li>
+                </ul>
+                  </div>
+                  <div>
+                    <h4>Aspectos técnicos</h4>
+                    <ul class="challenges">
+                  <li><b>Stock que se puede auditar</b>No se guarda como un número suelto: se calcula a partir de todos los movimientos, así siempre se sabe de dónde sale.</li>
+                  <li><b>Sin errores de redondeo</b>El dinero y las cantidades se guardan como enteros, incluso en las ventas al gramo.</li>
+                  <li><b>Actualizaciones seguras</b>La base de datos se actualiza sola con migraciones y la ventana de la aplicación está aislada por seguridad.</li>
+                  <li><b>40 pruebas automatizadas</b>Escritas con node:test, revisan el funcionamiento del sistema de forma automática.</li>
+                </ul>
+                  </div>
+                </div>
+                <div>
+                  <h4>Tecnologías</h4>
+                  <div class="chips"><span class="chip">Electron</span><span class="chip">JavaScript</span><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">SQLite · better-sqlite3</span><span class="chip">node:test</span></div>
+                </div>
               </div>
             </div>
-
-            <p class="note">Mi rol: diseño y desarrollo completo del producto, desde el modelo de datos y las políticas de seguridad hasta el panel web y la app móvil, con Claude como asistente de programación. El repositorio es privado; puedo mostrar el código en una entrevista.</p>
           </div>
         </div>
-
-        </div>
-
-        <figure class="case-wide wide-fig">
-          <div class="browser">
-            <div class="bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="label">Mostrador · panel web del comercio</span><button class="expand" type="button" data-src="media/mostrador-panel.mp4" data-poster="media/mostrador-panel.jpg" data-title="Mostrador · panel web"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 2.5h4v4M6.5 13.5h-4v-4M13.5 2.5 9 7M2.5 13.5 7 9"/></svg>Ver en grande</button></div>
-            <div class="vid">
-              <video muted loop playsinline preload="metadata" poster="media/mostrador-panel.jpg" aria-label="Recorrido por el panel web de Mostrador"><source src="media/mostrador-panel.mp4" type="video/mp4"></video>
-              <button class="vbtn" type="button" aria-label="Reproducir o pausar video"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z"/></svg></button>
+        <div class="pj" id="p-gimnasio">
+          <h3 class="pj-h">
+            <button class="pj-btn" type="button" aria-expanded="false" aria-controls="pp-gimnasio">
+              <span class="pj-name">Gestión para gimnasios</span>
+              <span class="pj-rubro">Gimnasios</span>
+              <span class="pj-tipo">Escritorio</span>
+              <span class="pj-pm" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 3v10M3 8h10"/></svg></span>
+            </button>
+          </h3>
+          <div class="pj-acc" id="pp-gimnasio" role="region" aria-label="Gestión para gimnasios" inert>
+            <div class="pj-inner">
+              <div class="pj-body">
+                <div class="pj-top">
+                  <span class="status info">Windows · sin internet</span>
+                  <p class="pj-sum">Muchos gimnasios chicos controlan las cuotas con un cuaderno o una planilla de Excel, y así es difícil saber quién debe, cuánto se cobró en el mes o quién dejó de venir. Esta aplicación instalable lo resuelve desde la computadora de recepción.</p>
+                </div>
+                <div class="pj-media">
+              <figure class="pj-fig">
+                <div class="browser app-window">
+                  <div class="bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="label">Gestión de socios · aplicación para Windows</span><button class="expand" type="button" data-src="media/gimnasio.mp4" data-poster="media/gimnasio.jpg" data-title="Sistema de gestión para gimnasios"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 2.5h4v4M6.5 13.5h-4v-4M13.5 2.5 9 7M2.5 13.5 7 9"/></svg>Ver en grande</button></div>
+                  <div class="vid">
+                    <video muted loop playsinline preload="none" poster="media/gimnasio.jpg" aria-label="Recorrido por el sistema de gestión para gimnasios"><source src="media/gimnasio.mp4" type="video/mp4"></video>
+                    <button class="vbtn" type="button" aria-label="Reproducir o pausar video"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z"/></svg></button>
+                  </div>
+                </div>
+                <figcaption class="caption">Recorrido por las funciones principales: ingreso por DNI, resumen, socios, cobros, pagos, aumento de precios y copias de seguridad.</figcaption>
+              </figure>
+                </div>
+                <div class="pj-cols">
+                  <div>
+                    <h4>Qué hace</h4>
+                    <ul class="ticks">
+                  <li>Ingreso por DNI, tipeado o con lector de código de barras: muestra al instante si la cuota está al día, por vencer o vencida.</li>
+                  <li>Socios, planes y cobro de cuotas con vencimiento automático. Los pagos se anulan en lugar de borrarse, para cuidar la caja.</li>
+                  <li>Panel de resumen: recaudación del mes contra el anterior, estado de las cuotas, socios que dejaron de venir, horarios pico y cumpleaños.</li>
+                  <li>Reclamo por WhatsApp en un clic, con el nombre del socio y su vencimiento.</li>
+                  <li>Aumento de precios por porcentaje, con redondeo y vista previa antes de aplicar.</li>
+                  <li>Copia de seguridad automática por día: guarda las últimas 30 y se restauran desde la misma aplicación.</li>
+                </ul>
+                  </div>
+                  <div>
+                    <h4>Aspectos técnicos</h4>
+                    <ul class="challenges">
+                  <li><b>Actualizaciones sin perder datos</b>La base de datos usa migraciones versionadas, así cada versión nueva del sistema se instala sobre la anterior.</li>
+                  <li><b>Arquitectura segura de Electron</b>La interfaz no accede a los archivos ni a internet: todo pasa por canales IPC validados.</li>
+                  <li><b>Búsqueda sin tildes ni mayúsculas</b>Escribir «martinez» encuentra a Martínez.</li>
+                  <li><b>33 pruebas automatizadas</b>Verifican cuotas, pagos, ingresos, mensajes de WhatsApp y copias de seguridad.</li>
+                </ul>
+                  </div>
+                </div>
+                <div>
+                  <h4>Tecnologías</h4>
+                  <div class="chips"><span class="chip">Electron</span><span class="chip">JavaScript</span><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">SQLite · better-sqlite3</span><span class="chip">Electron Forge</span><span class="chip">node:test</span></div>
+                </div>
+              </div>
             </div>
           </div>
-          <figcaption class="caption">Panel web: depósito con vencimientos, precios y combos, fiados, caja, gastos, reportes en PDF y Excel, y equipo con Mercado Pago. Video acelerado.</figcaption>
-        </figure>
-      </article>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <section class="block" id="sistemas">
-    <div class="wrap">
-      <div class="sec-head">
-        <div>
-          <p class="eyebrow">Sistemas de escritorio</p>
-          <h2>Programas instalables para negocios</h2>
         </div>
-        <p>Aplicaciones para Windows que funcionan sin internet. Estoy sumando sistemas para otros rubros.</p>
+        <div class="pj" id="p-atodacosta">
+          <h3 class="pj-h">
+            <button class="pj-btn" type="button" aria-expanded="false" aria-controls="pp-atodacosta">
+              <span class="pj-name">Competencia «A toda costa»</span>
+              <span class="pj-rubro">Competencias de CrossFit</span>
+              <span class="pj-tipo">Web</span>
+              <span class="pj-pm" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 3v10M3 8h10"/></svg></span>
+            </button>
+          </h3>
+          <div class="pj-acc" id="pp-atodacosta" role="region" aria-label="Competencia «A toda costa»" inert>
+            <div class="pj-inner">
+              <div class="pj-body">
+                <div class="pj-top">
+                  
+                  <p class="pj-sum">Sistema para una competencia de CrossFit: una tabla de posiciones en vivo y un panel de administración pensado para cargar resultados rápido durante el evento.</p>
+                </div>
+                <div class="pj-media">
+              <figure class="pj-fig">
+                <div class="browser app-window">
+                  <div class="bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="label">A toda costa · panel de administración</span><button class="expand" type="button" data-src="media/atodacosta.mp4" data-poster="media/atodacosta.jpg" data-title="A toda costa · panel de administración"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 2.5h4v4M6.5 13.5h-4v-4M13.5 2.5 9 7M2.5 13.5 7 9"/></svg>Ver en grande</button></div>
+                  <div class="vid">
+                    <video muted loop playsinline preload="none" poster="media/atodacosta.jpg" aria-label="Panel de administración de la competencia A toda costa"><source src="media/atodacosta.mp4" type="video/mp4"></video>
+                    <button class="vbtn" type="button" aria-label="Reproducir o pausar video"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z"/></svg></button>
+                  </div>
+                </div>
+                <figcaption class="caption">Panel de administración de la competencia.</figcaption>
+              </figure>
+                </div>
+                <div class="pj-cols">
+                  <div>
+                    <h4>Qué hace</h4>
+                    <ul class="ticks">
+                  <li>Tabla de posiciones en vivo.</li>
+                  <li>Panel de administración para cargar atletas, WODs y puntos.</li>
+                  <li>Calcula rankings y puntajes por categoría siguiendo los estándares oficiales de CrossFit.</li>
+                  <li>Pensado para cargar resultados rápido desde el celular.</li>
+                </ul>
+                  </div>
+                  <div>
+                    <h4>Tecnologías</h4>
+                    <div class="chips"><span class="chip">TypeScript</span><span class="chip">Next.js</span><span class="chip">NestJS</span><span class="chip">Prisma</span><span class="chip">Tailwind CSS</span><span class="chip">Vercel</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pj" id="p-ironbox">
+          <h3 class="pj-h">
+            <button class="pj-btn" type="button" aria-expanded="false" aria-controls="pp-ironbox">
+              <span class="pj-name">Plataforma Ironbox</span>
+              <span class="pj-rubro">Entrenamiento</span>
+              <span class="pj-tipo">Web</span>
+              <span class="pj-pm" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 3v10M3 8h10"/></svg></span>
+            </button>
+          </h3>
+          <div class="pj-acc" id="pp-ironbox" role="region" aria-label="Plataforma Ironbox" inert>
+            <div class="pj-inner">
+              <div class="pj-body">
+                <div class="pj-top">
+                  
+                  <p class="pj-sum">Plataforma para un box de CrossFit con perfiles separados para coaches y atletas, para que cada alumno siga su entrenamiento y su progreso.</p>
+                </div>
+                <div class="pj-media">
+              <figure class="pj-fig">
+                <div class="browser app-window">
+                  <div class="bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="label">Ironbox · plataforma para atletas</span><button class="expand" type="button" data-src="media/ironbox.mp4" data-poster="media/ironbox.jpg" data-title="Ironbox · plataforma para atletas"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 2.5h4v4M6.5 13.5h-4v-4M13.5 2.5 9 7M2.5 13.5 7 9"/></svg>Ver en grande</button></div>
+                  <div class="vid">
+                    <video muted loop playsinline preload="none" poster="media/ironbox.jpg" aria-label="Perfil de atleta, librería de ejercicios y tiempos en Ironbox"><source src="media/ironbox.mp4" type="video/mp4"></video>
+                    <button class="vbtn" type="button" aria-label="Reproducir o pausar video"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z"/></svg></button>
+                  </div>
+                </div>
+                <figcaption class="caption">Perfil de atleta, librería de ejercicios y carga de tiempos. Video acelerado.</figcaption>
+              </figure>
+                </div>
+                <div class="pj-cols">
+                  <div>
+                    <h4>Qué hace</h4>
+                    <ul class="ticks">
+                  <li>Perfiles separados para coaches y atletas.</li>
+                  <li>Los alumnos ven el WOD del día.</li>
+                  <li>Videos de cada ejercicio para ver la técnica.</li>
+                  <li>Historial de RM, pesos y tiempos por fecha.</li>
+                </ul>
+                  </div>
+                  <div>
+                    <h4>Tecnologías</h4>
+                    <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <!-- Sistema 1: Gimnasios -->
-      <article class="case sys">
-        <div class="sys-head">
-          <div class="case-meta">
-            <span class="eyebrow">Gimnasios</span>
-            <span class="status info">Windows · sin internet</span>
-          </div>
-          <h3>Sistema de gestión para gimnasios</h3>
-          <p class="summary">Muchos gimnasios chicos controlan las cuotas con un cuaderno o una planilla de Excel, y así es difícil saber quién debe, cuánto se cobró en el mes o quién dejó de venir. Desarrollé una aplicación de escritorio instalable que lo resuelve desde la computadora de recepción.</p>
-        </div>
-
-        <figure class="wide-fig">
-          <div class="browser app-window">
-            <div class="bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="label">Gestión de socios · aplicación para Windows</span><button class="expand" type="button" data-src="media/gimnasio.mp4" data-poster="media/gimnasio.jpg" data-title="Sistema de gestión para gimnasios"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 2.5h4v4M6.5 13.5h-4v-4M13.5 2.5 9 7M2.5 13.5 7 9"/></svg>Ver en grande</button></div>
-            <div class="vid">
-              <video muted loop playsinline preload="metadata" poster="media/gimnasio.jpg" aria-label="Recorrido por el sistema de gestión para gimnasios"><source src="media/gimnasio.mp4" type="video/mp4"></video>
-              <button class="vbtn" type="button" aria-label="Reproducir o pausar video"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z"/></svg></button>
-            </div>
-          </div>
-          <figcaption class="caption">Recorrido por las funciones principales: ingreso por DNI, resumen, socios, cobros, pagos, aumento de precios y copias de seguridad.</figcaption>
-        </figure>
-
-        <div class="case-main">
-          <div class="sys-col">
-            <div>
-              <h4>Qué hace</h4>
-              <ul class="ticks">
-                <li>Ingreso por DNI, tipeado o con lector de código de barras: muestra al instante si la cuota está al día, por vencer o vencida.</li>
-                <li>Socios, planes y cobro de cuotas con vencimiento automático. Los pagos se anulan en lugar de borrarse, para cuidar la caja.</li>
-                <li>Panel de resumen: recaudación del mes contra el anterior, estado de las cuotas, socios que dejaron de venir, horarios pico y cumpleaños.</li>
-                <li>Reclamo por WhatsApp en un clic, con el nombre del socio y su vencimiento.</li>
-                <li>Aumento de precios por porcentaje, con redondeo y vista previa antes de aplicar.</li>
-                <li>Copia de seguridad automática por día: guarda las últimas 30 y se restauran desde la misma aplicación.</li>
-              </ul>
-            </div>
-            <div>
-              <h4>Tecnologías</h4>
-              <div class="chips"><span class="chip">Electron</span><span class="chip">JavaScript</span><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">SQLite · better-sqlite3</span><span class="chip">Electron Forge</span><span class="chip">node:test</span></div>
-            </div>
-          </div>
-          <div>
-            <h4>Aspectos técnicos</h4>
-            <ul class="challenges">
-              <li><b>Actualizaciones sin perder datos</b>La base de datos usa migraciones versionadas, así cada versión nueva del sistema se instala sobre la anterior.</li>
-              <li><b>Arquitectura segura de Electron</b>La interfaz no accede a los archivos ni a internet: todo pasa por canales IPC validados.</li>
-              <li><b>Búsqueda sin tildes ni mayúsculas</b>Escribir «martinez» encuentra a Martínez.</li>
-              <li><b>33 pruebas automatizadas</b>Verifican cuotas, pagos, ingresos, mensajes de WhatsApp y copias de seguridad.</li>
-            </ul>
-          </div>
-        </div>
-      </article>
-
-      <!-- Sistema 2: Control de stock -->
-      <article class="case sys">
-        <div class="sys-head">
-          <div class="case-meta">
-            <span class="eyebrow">Almacenes y kioscos</span>
-            <span class="status info">Windows · sin internet</span>
-          </div>
-          <h3>Control de stock para almacenes y kioscos</h3>
-          <p class="summary">Reemplaza el cuaderno y la planilla de un almacén o kiosco. Muestra en todo momento qué mercadería hay, qué se está terminando, qué se vende más y cuánto deja cada venta.</p>
-        </div>
-
-        <figure class="wide-fig">
-          <div class="browser app-window">
-            <div class="bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="label">Control de stock · aplicación para Windows</span><button class="expand" type="button" data-src="media/control-stock.mp4" data-poster="media/control-stock.jpg" data-title="Control de stock para almacenes y kioscos"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 2.5h4v4M6.5 13.5h-4v-4M13.5 2.5 9 7M2.5 13.5 7 9"/></svg>Ver en grande</button></div>
-            <div class="vid">
-              <video muted loop playsinline preload="metadata" poster="media/control-stock.jpg" aria-label="Recorrido por el sistema de control de stock"><source src="media/control-stock.mp4" type="video/mp4"></video>
-              <button class="vbtn" type="button" aria-label="Reproducir o pausar video"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z"/></svg></button>
-            </div>
-          </div>
-          <figcaption class="caption">Recorrido por las funciones principales: productos, lector de código de barras, entradas, venta por peso, movimientos, reportes, lista de compras y copias de seguridad.</figcaption>
-        </figure>
-
-        <div class="case-main">
-          <div class="sys-col">
-            <div>
-              <h4>Qué hace</h4>
-              <ul class="ticks">
-                <li>Productos con código de barras, categoría, costo y porcentaje de ganancia: el precio de venta se calcula solo. Al pasar un producto por el lector se abre su ficha.</li>
-                <li>Alertas de stock bajo y sin stock, con el valor total de la mercadería al costo.</li>
-                <li>Compras, ventas, mermas, devoluciones y conteos, cada uno en un historial con el saldo. Los movimientos se anulan en lugar de borrarse.</li>
-                <li>Venta por peso para fiambres y productos sueltos, al gramo.</li>
-                <li>Reportes de lo más vendido, la ganancia real por categoría y la mercadería parada.</li>
-                <li>Lista de compras automática: sugiere cuánto pedir de cada producto y se manda al proveedor por WhatsApp, se copia o se imprime.</li>
-                <li>Copias de seguridad automáticas todos los días e instalador propio con el ícono y el nombre del negocio.</li>
-              </ul>
-            </div>
-            <div>
-              <h4>Tecnologías</h4>
-              <div class="chips"><span class="chip">Electron</span><span class="chip">JavaScript</span><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">SQLite · better-sqlite3</span><span class="chip">node:test</span></div>
-            </div>
-          </div>
-          <div>
-            <h4>Aspectos técnicos</h4>
-            <ul class="challenges">
-              <li><b>Stock que se puede auditar</b>No se guarda como un número suelto: se calcula a partir de todos los movimientos, así siempre se sabe de dónde sale.</li>
-              <li><b>Sin errores de redondeo</b>El dinero y las cantidades se guardan como enteros, incluso en las ventas al gramo.</li>
-              <li><b>Actualizaciones seguras</b>La base de datos se actualiza sola con migraciones y la ventana de la aplicación está aislada por seguridad.</li>
-              <li><b>40 pruebas automatizadas</b>Escritas con node:test, revisan el funcionamiento del sistema de forma automática.</li>
-            </ul>
-          </div>
-        </div>
-      </article>
-
-      <!-- Sistema 3: Caja -->
-      <article class="case sys">
-        <div class="sys-head">
-          <div class="case-meta">
-            <span class="eyebrow">Locales de comida</span>
-            <span class="status info">Windows · sin internet</span>
-          </div>
-          <h3>Caja: punto de venta para locales de comida</h3>
-          <p class="summary">Pensada para rotiserías, pizzerías, hamburgueserías y cafeterías. Cubre todo el día del mostrador: tomar el pedido, cobrar, avisar a la cocina, imprimir el ticket, cerrar la caja y ver cómo se vendió.</p>
-        </div>
-
-        <figure class="wide-fig">
-          <div class="browser app-window">
-            <div class="bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="label">Caja · aplicación para Windows</span><button class="expand" type="button" data-src="media/caja.mp4" data-poster="media/caja.jpg" data-title="Caja: punto de venta para locales de comida"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 2.5h4v4M6.5 13.5h-4v-4M13.5 2.5 9 7M2.5 13.5 7 9"/></svg>Ver en grande</button></div>
-            <div class="vid">
-              <video muted loop playsinline preload="metadata" poster="media/caja.jpg" aria-label="Recorrido por el punto de venta Caja"><source src="media/caja.mp4" type="video/mp4"></video>
-              <button class="vbtn" type="button" aria-label="Reproducir o pausar video"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z"/></svg></button>
-            </div>
-          </div>
-          <figcaption class="caption">Recorrido por las funciones principales: ingreso con PIN, venta, cobro, comanda y ticket, cocina, cierre de caja, reportes y clientes.</figcaption>
-        </figure>
-
-        <div class="case-main">
-          <div class="sys-col">
-            <div>
-              <h4>Qué hace</h4>
-              <ul class="ticks">
-                <li>Venta táctil con tamaños, agregados y notas para la cocina, para mostrador, para llevar, delivery o mesa.</li>
-                <li>Cobro en efectivo con vuelto, transferencia, débito, crédito, QR o combinando medios.</li>
-                <li>Tablero de cocina con el estado de cada pedido, y comandas y tickets para impresora térmica o en PDF.</li>
-                <li>Apertura y cierre de caja con arqueo: muestra si sobra o falta plata.</li>
-                <li>Usuarios con PIN y permisos para el dueño y los cajeros.</li>
-                <li>Agenda de clientes de delivery que se completa sola con el teléfono.</li>
-                <li>Reportes con gráficos: ventas por día y por hora, medios de pago, lo más vendido y comparación con el período anterior.</li>
-              </ul>
-            </div>
-            <div>
-              <h4>Tecnologías</h4>
-              <div class="chips"><span class="chip">Electron</span><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">Tailwind CSS</span><span class="chip">shadcn/ui</span><span class="chip">TanStack Query</span><span class="chip">Zod</span><span class="chip">SQLite · Drizzle</span><span class="chip">Vitest</span></div>
-            </div>
-          </div>
-          <div>
-            <h4>Aspectos técnicos</h4>
-            <ul class="challenges">
-              <li><b>Interfaz web moderna en el escritorio</b>React, TypeScript, Tailwind y shadcn/ui sobre Electron, con TanStack Query para manejar los datos.</li>
-              <li><b>Datos validados y tipados</b>Zod valida los datos y Drizzle da consultas tipadas sobre SQLite. La base se actualiza con 6 migraciones versionadas.</li>
-              <li><b>Los datos quedan en el local</b>Funciona sin internet, con copias de seguridad automáticas cada día que se restauran desde el sistema.</li>
-              <li><b>74 pruebas automatizadas</b>Escritas con Vitest.</li>
-            </ul>
-          </div>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <section class="block" id="mas">
-    <div class="wrap">
-      <div class="sec-head">
-        <div>
-          <p class="eyebrow">Más trabajos</p>
-          <h2>Otros proyectos</h2>
-        </div>
-        <p>Sistemas para competencias y entrenamiento, una app de inventario y un prototipo armado contra reloj en una hackatón.</p>
-      </div>
-      <div class="grid">
-        <article class="card">
-          <div class="card-media">
-            <div class="vid">
-              <video muted loop playsinline preload="metadata" poster="media/atodacosta.jpg" aria-label="Panel de administración de la competencia A toda costa"><source src="media/atodacosta.mp4" type="video/mp4"></video>
-              <button class="vbtn" type="button" aria-label="Reproducir o pausar video"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z"/></svg></button>
-            </div>
-            <button class="expand" type="button" data-src="media/atodacosta.mp4" data-poster="media/atodacosta.jpg" data-title="A toda costa · panel de administración"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 2.5h4v4M6.5 13.5h-4v-4M13.5 2.5 9 7M2.5 13.5 7 9"/></svg>Ver en grande</button>
-          </div>
-          <div class="card-body">
-            <div class="card-top"><span>2026</span><span>Sistema web</span></div>
-            <h3>Competencia «A toda costa»</h3>
-            <p>Tabla de posiciones en vivo y panel administrador para cargar atletas, WODs y puntos rápido. Calcula rankings y puntajes por categoría siguiendo los estándares oficiales de CrossFit.</p>
-            <div class="chips"><span class="chip">TypeScript</span><span class="chip">Next.js</span><span class="chip">NestJS</span><span class="chip">Prisma</span><span class="chip">Tailwind</span><span class="chip">Vercel</span></div>
-          </div>
-        </article>
-        <article class="card">
-          <div class="card-media">
-            <div class="vid">
-              <video muted loop playsinline preload="metadata" poster="media/ironbox.jpg" aria-label="Perfil de atleta, librería de ejercicios y tiempos en Ironbox"><source src="media/ironbox.mp4" type="video/mp4"></video>
-              <button class="vbtn" type="button" aria-label="Reproducir o pausar video"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z"/></svg></button>
-            </div>
-            <button class="expand" type="button" data-src="media/ironbox.mp4" data-poster="media/ironbox.jpg" data-title="Ironbox · plataforma para atletas"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 2.5h4v4M6.5 13.5h-4v-4M13.5 2.5 9 7M2.5 13.5 7 9"/></svg>Ver en grande</button>
-          </div>
-          <div class="card-body">
-            <div class="card-top"><span>2026</span><span>Sistema web</span></div>
-            <h3>Plataforma para Ironbox</h3>
-            <p>Perfiles separados para coaches y atletas. Los alumnos ven el WOD del día, miran videos de cada ejercicio, cargan sus tiempos y llevan un historial de RM y pesos por fecha.</p>
-            <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span></div>
-          </div>
-        </article>
-        <article class="card">
-          <div class="card-body">
-            <div class="card-top"><span>2025</span><span>App móvil</span></div>
-            <h3>G-Inv</h3>
-            <p>Plataforma de gestión de inventario inteligente. Fui responsable principal del desarrollo completo de la app móvil y colaboré en el diseño de la base de datos.</p>
-            <div class="chips"><span class="chip">React Native</span><span class="chip">Expo</span><span class="chip">Bases de datos</span></div>
-          </div>
-        </article>
-        <article class="card">
-          <div class="card-body">
-            <div class="card-top"><span>2025</span><span>Hackatón</span></div>
-            <h3>FormosaHack · IPF Formosa</h3>
-            <p>Desarrollo en equipo y bajo presión de un prototipo funcional orientado a inversionistas locales de Formosa, de la idea a la demo en pocas horas.</p>
-            <div class="chips"><span class="chip">Prototipado</span><span class="chip">Trabajo en equipo</span></div>
-          </div>
-        </article>
-      </div>
+      <p class="pj-more">También participé en G-Inv, una app de gestión de inventario que hicimos en equipo en el instituto, donde me ocupé de la app móvil, y en la FormosaHack del Instituto Politécnico Formosa, armando un prototipo en pocas horas.</p>
     </div>
   </section>
 
@@ -900,6 +987,40 @@ footer .wrap { padding-block: 28px; display: flex; flex-wrap: wrap; justify-cont
       entries.forEach(function (e) { e.target._visible = e.isIntersecting; decide(e.target); });
     }, { threshold: 0.35 });
     boxes.forEach(function (box) { io.observe(box); });
+  }
+
+  // Proyectos desplegables
+  var items = Array.prototype.slice.call(document.querySelectorAll('.pj'));
+  var setOpen = function (item, open) {
+    var btn = item.querySelector('.pj-btn');
+    var acc = item.querySelector('.pj-acc');
+    item.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (open) { acc.removeAttribute('inert'); }
+    else {
+      acc.setAttribute('inert', '');
+      item.querySelectorAll('video').forEach(function (v) { if (!v.paused) v.pause(); });
+    }
+  };
+  items.forEach(function (item) {
+    item.querySelector('.pj-btn').addEventListener('click', function () {
+      var willOpen = !item.classList.contains('open');
+      items.forEach(function (o) { if (o !== item && o.classList.contains('open')) setOpen(o, false); });
+      setOpen(item, willOpen);
+      if (willOpen) {
+        item.querySelectorAll('video').forEach(function (v) { if (v.preload === 'none') { v.preload = 'metadata'; } });
+        setTimeout(function () {
+          var top = item.getBoundingClientRect().top;
+          if (top < 60 || top > window.innerHeight * 0.6) {
+            item.querySelector('.pj-btn').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+          }
+        }, reduce ? 0 : 520);
+      }
+    });
+  });
+  if (location.hash && location.hash.indexOf('#p-') === 0) {
+    var target = document.getElementById(location.hash.slice(1));
+    if (target && target.classList.contains('pj')) { setOpen(target, true); }
   }
 
   // Visor en grande
