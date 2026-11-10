@@ -689,6 +689,59 @@ footer .wrap { padding-block: 28px; display: flex; flex-wrap: wrap; justify-cont
           </div>
         </div>
       </article>
+
+      <!-- Sistema 3: Caja -->
+      <article class="case sys">
+        <div class="sys-head">
+          <div class="case-meta">
+            <span class="eyebrow">Locales de comida</span>
+            <span class="status info">Windows · sin internet</span>
+          </div>
+          <h3>Caja: punto de venta para locales de comida</h3>
+          <p class="summary">Pensada para rotiserías, pizzerías, hamburgueserías y cafeterías. Cubre todo el día del mostrador: tomar el pedido, cobrar, avisar a la cocina, imprimir el ticket, cerrar la caja y ver cómo se vendió.</p>
+        </div>
+
+        <figure class="wide-fig">
+          <div class="browser app-window">
+            <div class="bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="label">Caja · aplicación para Windows</span><button class="expand" type="button" data-src="media/caja.mp4" data-poster="media/caja.jpg" data-title="Caja: punto de venta para locales de comida"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 2.5h4v4M6.5 13.5h-4v-4M13.5 2.5 9 7M2.5 13.5 7 9"/></svg>Ver en grande</button></div>
+            <div class="vid">
+              <video muted loop playsinline preload="metadata" poster="media/caja.jpg" aria-label="Recorrido por el punto de venta Caja"><source src="media/caja.mp4" type="video/mp4"></video>
+              <button class="vbtn" type="button" aria-label="Reproducir o pausar video"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z"/></svg></button>
+            </div>
+          </div>
+          <figcaption class="caption">Recorrido por las funciones principales: ingreso con PIN, venta, cobro, comanda y ticket, cocina, cierre de caja, reportes y clientes.</figcaption>
+        </figure>
+
+        <div class="case-main">
+          <div class="sys-col">
+            <div>
+              <h4>Qué hace</h4>
+              <ul class="ticks">
+                <li>Venta táctil con tamaños, agregados y notas para la cocina, para mostrador, para llevar, delivery o mesa.</li>
+                <li>Cobro en efectivo con vuelto, transferencia, débito, crédito, QR o combinando medios.</li>
+                <li>Tablero de cocina con el estado de cada pedido, y comandas y tickets para impresora térmica o en PDF.</li>
+                <li>Apertura y cierre de caja con arqueo: muestra si sobra o falta plata.</li>
+                <li>Usuarios con PIN y permisos para el dueño y los cajeros.</li>
+                <li>Agenda de clientes de delivery que se completa sola con el teléfono.</li>
+                <li>Reportes con gráficos: ventas por día y por hora, medios de pago, lo más vendido y comparación con el período anterior.</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Tecnologías</h4>
+              <div class="chips"><span class="chip">Electron</span><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">Tailwind CSS</span><span class="chip">shadcn/ui</span><span class="chip">TanStack Query</span><span class="chip">Zod</span><span class="chip">SQLite · Drizzle</span><span class="chip">Vitest</span></div>
+            </div>
+          </div>
+          <div>
+            <h4>Aspectos técnicos</h4>
+            <ul class="challenges">
+              <li><b>Interfaz web moderna en el escritorio</b>React, TypeScript, Tailwind y shadcn/ui sobre Electron, con TanStack Query para manejar los datos.</li>
+              <li><b>Datos validados y tipados</b>Zod valida los datos y Drizzle da consultas tipadas sobre SQLite. La base se actualiza con 6 migraciones versionadas.</li>
+              <li><b>Los datos quedan en el local</b>Funciona sin internet, con copias de seguridad automáticas cada día que se restauran desde el sistema.</li>
+              <li><b>74 pruebas automatizadas</b>Escritas con Vitest.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
     </div>
   </section>
 
