@@ -584,6 +584,65 @@ footer .wrap { padding-block: 28px; display: flex; flex-wrap: wrap; justify-cont
             </div>
           </div>
         </div>
+        <div class="pj" id="p-turnos">
+          <h3 class="pj-h">
+            <button class="pj-btn" type="button" aria-expanded="false" aria-controls="pp-turnos">
+              <span class="pj-name">Turnos</span>
+              <span class="pj-rubro">Gestión para consultorios</span>
+              <span class="pj-tipo">Escritorio</span>
+              <span class="pj-pm" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 3v10M3 8h10"/></svg></span>
+            </button>
+          </h3>
+          <div class="pj-acc" id="pp-turnos" role="region" aria-label="Turnos" inert>
+            <div class="pj-inner">
+              <div class="pj-body">
+                <div class="pj-top">
+                  <span class="status info">Windows · sin internet</span>
+                  <p class="pj-sum">Muchos consultorios todavía manejan los turnos en un cuaderno o en un Excel: cuesta ver los huecos libres, hay turnos que se pisan, los pacientes se olvidan de venir y a fin de mes nadie sabe cuánto se cobró por cada obra social. Turnos se instala en la PC de recepción y cubre el día completo del consultorio.</p>
+                </div>
+                <div class="pj-media">
+              <figure class="pj-fig">
+                <div class="browser app-window">
+                  <div class="bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="label">Turnos · aplicación para Windows</span><button class="expand" type="button" data-src="media/turnos.mp4" data-poster="media/turnos.jpg" data-title="Turnos: gestión para consultorios"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 2.5h4v4M6.5 13.5h-4v-4M13.5 2.5 9 7M2.5 13.5 7 9"/></svg>Ver en grande</button></div>
+                  <div class="vid">
+                    <video muted loop playsinline preload="none" poster="media/turnos.jpg" aria-label="Recorrido por el sistema Turnos para consultorios"><source src="media/turnos.mp4" type="video/mp4"></video>
+                    <button class="vbtn" type="button" aria-label="Reproducir o pausar video"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z"/></svg></button>
+                  </div>
+                </div>
+                <figcaption class="caption">Recorrido por las funciones principales: ingreso con PIN, agenda, turnos, sala de espera, cobros, recordatorios, historia clínica, reportes y copias de seguridad.</figcaption>
+              </figure>
+                </div>
+                <div class="pj-cols">
+                  <div>
+                    <h4>Qué hace</h4>
+                    <ul class="ticks">
+                  <li>Agenda por día y por semana para varios profesionales, cada uno con su horario y la duración de sus turnos. No deja dar dos turnos a la misma hora y muestra los próximos horarios libres.</li>
+                  <li>Recepción y sala de espera: quién llegó, cuánto lleva esperando y quién ya fue atendido.</li>
+                  <li>Recordatorios por WhatsApp en un clic, con el nombre, el día y la hora del turno.</li>
+                  <li>Historia clínica por paciente, visible solo para los profesionales. Cada nota se cierra al terminar el día, con el nombre de quien la escribió.</li>
+                  <li>Cobros particulares o por obra social, con el detalle por forma de pago.</li>
+                  <li>Reportes de ausentismo, ocupación de cada profesional y cobros por obra social. Las órdenes de cada obra social se exportan a Excel.</li>
+                  <li>Usuarios con PIN y roles para administración, profesionales y recepción.</li>
+                </ul>
+                  </div>
+                  <div>
+                    <h4>Aspectos técnicos</h4>
+                    <ul class="challenges">
+                  <li><b>Permisos controlados de verdad</b>Se validan en el proceso principal de Electron, no solo en la interfaz. Los PIN se guardan cifrados con scrypt y sal, y la pantalla se bloquea sola después de un rato sin uso.</li>
+                  <li><b>Turnos que no se pisan</b>La propia base de datos impide que dos turnos se superpongan, aunque alguien saltee la interfaz.</li>
+                  <li><b>Datos en el consultorio</b>SQLite con Drizzle y migraciones versionadas, con copias de seguridad automáticas cada día que se restauran desde la app.</li>
+                  <li><b>Instalador propio y 66 pruebas</b>Se instala como cualquier programa de Windows y tiene 66 pruebas automatizadas.</li>
+                </ul>
+                  </div>
+                </div>
+                <div>
+                  <h4>Tecnologías</h4>
+                  <div class="chips"><span class="chip">Electron</span><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">Tailwind CSS</span><span class="chip">shadcn/ui</span><span class="chip">SQLite · Drizzle</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="pj" id="p-mostrador">
           <h3 class="pj-h">
             <button class="pj-btn" type="button" aria-expanded="false" aria-controls="pp-mostrador">
