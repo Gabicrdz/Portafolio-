@@ -584,6 +584,63 @@ footer .wrap { padding-block: 28px; display: flex; flex-wrap: wrap; justify-cont
             </div>
           </div>
         </div>
+        <div class="pj" id="p-comandas">
+          <h3 class="pj-h">
+            <button class="pj-btn" type="button" aria-expanded="false" aria-controls="pp-comandas">
+              <span class="pj-name">Comandas</span>
+              <span class="pj-rubro">Sistema para restaurantes</span>
+              <span class="pj-tipo">Escritorio</span>
+              <span class="pj-pm" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 3v10M3 8h10"/></svg></span>
+            </button>
+          </h3>
+          <div class="pj-acc" id="pp-comandas" role="region" aria-label="Comandas" inert>
+            <div class="pj-inner">
+              <div class="pj-body">
+                <div class="pj-top">
+                  <span class="status info">Windows · sin internet</span>
+                  <p class="pj-sum">En muchos restaurantes las comandas se anotan en papel y se gritan a la cocina: se pierden pedidos, se demoran las mesas y el dueño no sabe cuánto tarda cada plato ni cuánto vende cada mozo. Comandas maneja todo el salón desde una aplicación instalable que funciona sin internet, dentro de la red del local.</p>
+                </div>
+                <div class="pj-media">
+              <figure class="pj-fig">
+                <div class="browser app-window">
+                  <div class="bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="label">Comandas · aplicación para Windows</span><button class="expand" type="button" data-src="media/comandas.mp4" data-poster="media/comandas.jpg" data-title="Comandas: sistema para restaurantes"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 2.5h4v4M6.5 13.5h-4v-4M13.5 2.5 9 7M2.5 13.5 7 9"/></svg>Ver en grande</button></div>
+                  <div class="vid">
+                    <video muted loop playsinline preload="none" poster="media/comandas.jpg" aria-label="Recorrido por el sistema Comandas para restaurantes"><source src="media/comandas.mp4" type="video/mp4"></video>
+                    <button class="vbtn" type="button" aria-label="Reproducir o pausar video"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z"/></svg></button>
+                  </div>
+                </div>
+                <figcaption class="caption">Recorrido por las funciones principales: salón en vivo, pedido desde el celular del mozo, pantalla de cocina y barra, cuenta dividida y reportes.</figcaption>
+              </figure>
+                </div>
+                <div class="pj-cols">
+                  <div>
+                    <h4>Qué hace</h4>
+                    <ul class="ticks">
+                  <li>Salón en vivo: plano de mesas libres, ocupadas o pidiendo la cuenta, con el consumo y el tiempo de cada una.</li>
+                  <li>Los mozos entran desde su celular por el wifi del local escaneando un QR, sin instalar nada. Abren mesas, arman rondas y las mandan.</li>
+                  <li>La comanda llega sola a la pantalla de cocina o de barra, con sonido. Cocina marca Empezar y ¡Lista!, y el mozo recibe el aviso en el celular.</li>
+                  <li>La cuenta: propina, dividir en partes iguales o «cada uno lo suyo», pasar o juntar mesas, y ticket impreso o en PDF.</li>
+                  <li>Reportes de ventas por día, producto y medio de pago, ventas por mozo, tiempos de cocina y propinas.</li>
+                  <li>PIN por usuario, permisos por rol y copias de seguridad automáticas, también antes de cada actualización.</li>
+                </ul>
+                  </div>
+                  <div>
+                    <h4>Aspectos técnicos</h4>
+                    <ul class="challenges">
+                  <li><b>Tiempo real sin internet</b>La aplicación tiene su propio servidor HTTP con eventos en vivo (SSE) y reconexión automática. Los celulares se conectan por el wifi del local.</li>
+                  <li><b>Envíos sin duplicados</b>Si el wifi falla y el celular reintenta, la ronda nunca se carga dos veces.</li>
+                  <li><b>Datos validados y probados</b>SQLite con Drizzle, validación con Zod, 10 migraciones versionadas y 120 pruebas automatizadas.</li>
+                </ul>
+                  </div>
+                </div>
+                <div>
+                  <h4>Tecnologías</h4>
+                  <div class="chips"><span class="chip">Electron</span><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">Tailwind CSS</span><span class="chip">SQLite · Drizzle</span><span class="chip">Zod</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="pj" id="p-turnos">
           <h3 class="pj-h">
             <button class="pj-btn" type="button" aria-expanded="false" aria-controls="pp-turnos">
