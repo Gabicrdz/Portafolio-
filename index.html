@@ -700,6 +700,66 @@ footer .wrap { padding-block: 28px; display: flex; flex-wrap: wrap; justify-cont
             </div>
           </div>
         </div>
+        <div class="pj" id="p-veterinaria">
+          <h3 class="pj-h">
+            <button class="pj-btn" type="button" aria-expanded="false" aria-controls="pp-veterinaria">
+              <span class="pj-name">Veterinaria</span>
+              <span class="pj-rubro">Gestión para veterinarias</span>
+              <span class="pj-tipo">Escritorio</span>
+              <span class="pj-pm" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 3v10M3 8h10"/></svg></span>
+            </button>
+          </h3>
+          <div class="pj-acc" id="pp-veterinaria" role="region" aria-label="Veterinaria" inert>
+            <div class="pj-inner">
+              <div class="pj-body">
+                <div class="pj-top">
+                  <span class="status info">Windows · sin internet</span>
+                  <p class="pj-sum">Reemplaza las planillas y los cuadernos de una veterinaria: mascotas y dueños, turnos, vacunas, venta de alimento, internación y baños en una sola aplicación. Funciona sin internet, los datos quedan en la computadora del local y no hay que pagar una suscripción. Cada persona entra con su PIN, con roles de administración, recepción y veterinario.</p>
+                </div>
+                <div class="pj-media">
+              <figure class="pj-fig">
+                <div class="browser app-window">
+                  <div class="bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="label">Veterinaria · aplicación para Windows</span><button class="expand" type="button" data-src="media/veterinaria.mp4" data-poster="media/veterinaria.jpg" data-title="Veterinaria: sistema de gestión"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 2.5h4v4M6.5 13.5h-4v-4M13.5 2.5 9 7M2.5 13.5 7 9"/></svg>Ver en grande</button></div>
+                  <div class="vid">
+                    <video muted loop playsinline preload="none" poster="media/veterinaria.jpg" aria-label="Recorrido por el sistema de gestión para veterinarias"><source src="media/veterinaria.mp4" type="video/mp4"></video>
+                    <button class="vbtn" type="button" aria-label="Reproducir o pausar video"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z"/></svg></button>
+                  </div>
+                </div>
+                <figcaption class="caption">Recorrido por las funciones principales: agenda, vacunas, mostrador, stock, internación, baños y peluquería, y reportes.</figcaption>
+              </figure>
+                </div>
+                <div class="pj-cols">
+                  <div>
+                    <h4>Qué hace</h4>
+                    <ul class="ticks">
+                  <li>Agenda y recepción: turnos por veterinario sin superposiciones, sala de espera, cobro de la consulta y recordatorio por WhatsApp.</li>
+                  <li>Ficha de cada mascota con su dueño, historia clínica, peso y temperatura.</li>
+                  <li>Carnet de vacunas: avisa quién tiene la dosis vencida y arma el mensaje de WhatsApp.</li>
+                  <li>Mostrador: venta de alimento por unidad o por kilo suelto, con forma de pago y anulación.</li>
+                  <li>Stock que baja solo con cada venta, con entradas, mermas, conteos y aviso cuando un producto llega al mínimo.</li>
+                  <li>Internación: notas de evolución con temperatura y alta con cobro de los días.</li>
+                  <li>Baños y peluquería: un tablero con Esperando, En proceso y Listo para retirar, con aviso por WhatsApp y cobro al entregar.</li>
+                  <li>Reportes de atenciones, ausentismo, ventas con ganancia, internación y baños, exportables a Excel.</li>
+                </ul>
+                  </div>
+                  <div>
+                    <h4>Aspectos técnicos</h4>
+                    <ul class="challenges">
+                  <li><b>Nada queda desactualizado</b>El stock y los totales se calculan a partir de los movimientos, no se guardan como números sueltos.</li>
+                  <li><b>Cada cobro con su origen</b>Cada cobro queda registrado junto con el cambio de estado que lo origina, como el alta de una internación o la entrega de un baño.</li>
+                  <li><b>Datos en el local</b>Se instala con un solo .exe, funciona sin internet y tiene copias de seguridad que se restauran desde el mismo sistema.</li>
+                  <li><b>148 pruebas automatizadas</b>Sobre una base SQLite con Drizzle y validación con Zod.</li>
+                </ul>
+                  </div>
+                </div>
+                <div>
+                  <h4>Tecnologías</h4>
+                  <div class="chips"><span class="chip">Electron</span><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">Tailwind CSS</span><span class="chip">SQLite · Drizzle</span><span class="chip">Zod</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="pj" id="p-mostrador">
           <h3 class="pj-h">
             <button class="pj-btn" type="button" aria-expanded="false" aria-controls="pp-mostrador">
