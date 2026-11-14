@@ -782,6 +782,66 @@ footer .wrap { padding-block: 28px; display: flex; flex-wrap: wrap; justify-cont
             </div>
           </div>
         </div>
+        <div class="pj" id="p-canchas">
+          <h3 class="pj-h">
+            <button class="pj-btn" type="button" aria-expanded="false" aria-controls="pp-canchas">
+              <span class="pj-name">Canchas</span>
+              <span class="pj-rubro">Reservas para fútbol y pádel</span>
+              <span class="pj-tipo">Escritorio</span>
+              <span class="pj-pm" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 3v10M3 8h10"/></svg></span>
+            </button>
+          </h3>
+          <div class="pj-acc" id="pp-canchas" role="region" aria-label="Canchas" inert>
+            <div class="pj-inner">
+              <div class="pj-body">
+                <div class="pj-top">
+                  <span class="status info">Windows · sin internet</span>
+                  <p class="pj-sum">Reemplaza la planilla y el cuaderno del mostrador de un complejo de fútbol y pádel: reservas por cancha, señas y cobros, abonos fijos, avisos por WhatsApp, comprobante impreso, reportes con mapa de calor y torneos con fixture y posiciones. Funciona sin internet y guarda todo en el propio equipo.</p>
+                </div>
+                <div class="pj-media">
+              <figure class="pj-fig">
+                <div class="browser app-window">
+                  <div class="bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="label">Canchas · aplicación para Windows</span><button class="expand" type="button" data-src="media/canchas.mp4" data-poster="media/canchas.jpg" data-title="Canchas: reservas para fútbol y pádel"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 2.5h4v4M6.5 13.5h-4v-4M13.5 2.5 9 7M2.5 13.5 7 9"/></svg>Ver en grande</button></div>
+                  <div class="vid">
+                    <video muted loop playsinline preload="none" poster="media/canchas.jpg" aria-label="Recorrido por el sistema de reservas Canchas"><source src="media/canchas.mp4" type="video/mp4"></video>
+                    <button class="vbtn" type="button" aria-label="Reproducir o pausar video"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z"/></svg></button>
+                  </div>
+                </div>
+                <figcaption class="caption">Recorrido por las funciones principales: grilla del día, reservas con seña, cobros, comprobante, abonos y bloqueos, reportes, torneos y precios.</figcaption>
+              </figure>
+                </div>
+                <div class="pj-cols">
+                  <div>
+                    <h4>Qué hace</h4>
+                    <ul class="ticks">
+                  <li>Grilla del día con una columna por cancha, fútbol en verde y pádel en azul, la línea de la hora actual y el estado de cada reserva. No deja superponer turnos.</li>
+                  <li>Seña y saldo con efectivo, transferencia, Mercado Pago o tarjeta, con precios por cancha y franja horaria.</li>
+                  <li>Abonos: los equipos que juegan todas las semanas se reservan solos. Bloqueos de canchas por lluvia, mantenimiento o torneos.</li>
+                  <li>WhatsApp sin API: arma el recordatorio, el cobro del saldo o la confirmación con la cancha, la hora y el monto.</li>
+                  <li>Comprobante de 72 mm para impresora térmica.</li>
+                  <li>Reportes de ingresos, medios de pago y ocupación, mapa de calor de los horarios que más se llenan, mejores clientes y deudores con un botón para avisarles.</li>
+                  <li>Torneos: inscripción cobrada, fixture todos contra todos, carga de resultados, tabla de posiciones automática y fixture imprimible.</li>
+                  <li>Ingreso con PIN, roles de administrador y encargado, copias de seguridad e historial de quién hizo cada cosa.</li>
+                </ul>
+                  </div>
+                  <div>
+                    <h4>Aspectos técnicos</h4>
+                    <ul class="challenges">
+                  <li><b>Procesos separados y permisos por canal</b>Electron dividido en main, preload y renderer, con un contrato tipado de IPC y permisos por canal: libre, sesión o administrador.</li>
+                  <li><b>Reglas protegidas dos veces</b>En el código y con triggers SQL que impiden superponer turnos aunque alguien saltee la interfaz.</li>
+                  <li><b>Todo auditable</b>Dinero en centavos y bajas lógicas, así nada se borra. PIN con scrypt y copias con la API nativa de SQLite.</li>
+                  <li><b>112 pruebas automatizadas</b>Con Vitest, más verificación de la interfaz con Playwright. Los reportes se prueban con fechas controladas.</li>
+                </ul>
+                  </div>
+                </div>
+                <div>
+                  <h4>Tecnologías</h4>
+                  <div class="chips"><span class="chip">Electron</span><span class="chip">Electron Forge</span><span class="chip">Vite</span><span class="chip">React 19</span><span class="chip">TypeScript</span><span class="chip">Tailwind CSS 4</span><span class="chip">shadcn/ui</span><span class="chip">SQLite · Drizzle</span><span class="chip">Zod</span><span class="chip">TanStack Query</span><span class="chip">Vitest</span><span class="chip">Playwright</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="pj" id="p-mostrador">
           <h3 class="pj-h">
             <button class="pj-btn" type="button" aria-expanded="false" aria-controls="pp-mostrador">
