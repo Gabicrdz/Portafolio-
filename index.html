@@ -324,6 +324,7 @@ section.block .wrap { padding-block: 96px; }
 .contact .wrap { padding-block: 104px; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 56px; align-items: end; }
 .contact h2 { font-size: clamp(36px, 5.4vw, 64px); font-weight: 800; }
 .contact .lead { margin-top: 20px; font-size: 18px; opacity: .75; max-width: 46ch; }
+.avail-line { margin-top: 18px; display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 500; }
 .c-lines { display: grid; gap: 12px; }
 .c-line { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 16px 18px; border: 1px solid color-mix(in srgb, var(--bg) 22%, transparent); border-radius: var(--radius); }
 .c-line > div { min-width: 0; }
@@ -920,7 +921,7 @@ footer .wrap { padding-block: 28px; display: flex; flex-wrap: wrap; justify-cont
                   </div>
                   <div>
                     <h4>Mi rol</h4>
-                    <p class="note">Diseño y desarrollo completo del producto, desde el modelo de datos y las políticas de seguridad hasta el panel web y la app móvil, con Claude como asistente de programación. El repositorio es privado; puedo mostrar el código en una entrevista.</p>
+                    <p class="note">Diseño y desarrollo completo del producto, desde el modelo de datos y las políticas de seguridad hasta el panel web y la app móvil, con Claude como asistente de programación. Las decisiones de diseño fueron mías: que muchos comercios compartan una base con aislamiento por RLS, que la lógica de las ventas viva en la base de datos y no en la app, y la cola de ventas sin conexión. El repositorio es privado; puedo mostrar el código en una entrevista.</p>
                   </div>
                 </div>
               </div>
@@ -1192,10 +1193,12 @@ footer .wrap { padding-block: 28px; display: flex; flex-wrap: wrap; justify-cont
         <p class="eyebrow" style="color:inherit;opacity:.65">Contacto</p>
         <h2 style="margin-top:14px">¿Tenés un negocio o un proyecto en mente?</h2>
         <p class="lead">Contame qué necesitás y te respondo con una idea de cómo resolverlo. También estoy abierto a sumarme a un equipo de desarrollo.</p>
+        <p class="avail-line"><span class="dot" aria-hidden="true"></span>Disponible para trabajo remoto o presencial en Formosa.</p>
       </div>
       <div class="c-lines">
         <div class="c-line"><div><small>Email</small><a class="val" id="v-email" href="mailto:cardozosg2003@gmail.com">cardozosg2003@gmail.com</a></div><button class="copy" type="button" data-copy="v-email">Copiar</button></div>
         <div class="c-line"><div><small>Teléfono / WhatsApp</small><a class="val" id="v-tel" href="https://wa.me/5493704044289" target="_blank" rel="noopener">+54 9 3704 04-4289</a></div><button class="copy" type="button" data-copy="v-tel">Copiar</button></div>
+        <div class="c-line"><div><small>LinkedIn</small><a class="val" href="https://www.linkedin.com/in/sergiocardozo-dev" target="_blank" rel="noopener">linkedin.com/in/sergiocardozo-dev</a></div></div>
         <div class="c-line"><div><small>GitHub</small><a class="val" href="https://github.com/Gabicrdz" target="_blank" rel="noopener">github.com/Gabicrdz</a></div></div>
       </div>
     </div>
