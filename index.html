@@ -86,6 +86,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .eyebrow { font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.pj-code { display: inline-block; margin-top: 16px; font-weight: 600; font-size: 15px; color: var(--accent); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.pj-code:hover { text-decoration-thickness: 2px; }
 .chip {
   font-family: var(--font-mono); font-size: 12.5px; line-height: 1;
   padding: 6px 9px; border: 1px solid var(--line); border-radius: 6px; color: var(--muted); background: var(--surface);
@@ -602,6 +604,7 @@ footer .wrap { padding-block: 28px; display: flex; flex-wrap: wrap; justify-cont
                 <div>
                   <h4>Tecnologías</h4>
                   <ul class="chips"><li class="chip">Electron</li><li class="chip">React</li><li class="chip">TypeScript</li><li class="chip">Tailwind CSS</li><li class="chip">shadcn/ui</li><li class="chip">TanStack Query</li><li class="chip">Zod</li><li class="chip">SQLite · Drizzle</li><li class="chip">Vitest</li><li class="chip">ARCA (ex AFIP)</li></ul>
+                  <a class="pj-code" href="https://github.com/Gabicrdz/Caja" target="_blank" rel="noopener">Ver el código en GitHub<span aria-hidden="true"> ↗</span></a>
                 </div>
               </div>
             </div>
@@ -652,13 +655,14 @@ footer .wrap { padding-block: 28px; display: flex; flex-wrap: wrap; justify-cont
                     <ul class="challenges">
                   <li><b>Tiempo real sin internet</b>La aplicación tiene su propio servidor HTTP con eventos en vivo (SSE) y reconexión automática. Los celulares se conectan por el wifi del local.</li>
                   <li><b>Envíos sin duplicados</b>Si el wifi falla y el celular reintenta, la ronda nunca se carga dos veces.</li>
-                  <li><b>Datos validados y probados</b>SQLite con Drizzle, validación con Zod, 10 migraciones versionadas y 120 pruebas automatizadas.</li>
+                  <li><b>Datos validados y probados</b>SQLite con Drizzle, validación con Zod, 10 migraciones versionadas y pruebas automatizadas.</li>
                 </ul>
                   </div>
                 </div>
                 <div>
                   <h4>Tecnologías</h4>
                   <ul class="chips"><li class="chip">Electron</li><li class="chip">React</li><li class="chip">TypeScript</li><li class="chip">Tailwind CSS</li><li class="chip">SQLite · Drizzle</li><li class="chip">Zod</li></ul>
+                  <a class="pj-code" href="https://github.com/Gabicrdz/comandas" target="_blank" rel="noopener">Ver el código en GitHub<span aria-hidden="true"> ↗</span></a>
                 </div>
               </div>
             </div>
@@ -711,13 +715,14 @@ footer .wrap { padding-block: 28px; display: flex; flex-wrap: wrap; justify-cont
                   <li><b>Permisos controlados de verdad</b>Se validan en el proceso principal de Electron, no solo en la interfaz. Los PIN se guardan cifrados con scrypt y sal, y la pantalla se bloquea sola después de un rato sin uso.</li>
                   <li><b>Turnos que no se pisan</b>La propia base de datos impide que dos turnos se superpongan, aunque alguien saltee la interfaz.</li>
                   <li><b>Datos en el consultorio</b>SQLite con Drizzle y migraciones versionadas, con copias de seguridad automáticas cada día que se restauran desde la app.</li>
-                  <li><b>Instalador propio y 66 pruebas</b>Se instala como cualquier programa de Windows y tiene 66 pruebas automatizadas.</li>
+                  <li><b>Instalador propio y pruebas automatizadas</b>Se instala como cualquier programa de Windows y tiene pruebas que revisan su funcionamiento.</li>
                 </ul>
                   </div>
                 </div>
                 <div>
                   <h4>Tecnologías</h4>
                   <ul class="chips"><li class="chip">Electron</li><li class="chip">React</li><li class="chip">TypeScript</li><li class="chip">Tailwind CSS</li><li class="chip">shadcn/ui</li><li class="chip">SQLite · Drizzle</li></ul>
+                  <a class="pj-code" href="https://github.com/Gabicrdz/turnos" target="_blank" rel="noopener">Ver el código en GitHub<span aria-hidden="true"> ↗</span></a>
                 </div>
               </div>
             </div>
@@ -771,13 +776,14 @@ footer .wrap { padding-block: 28px; display: flex; flex-wrap: wrap; justify-cont
                   <li><b>Nada queda desactualizado</b>El stock y los totales se calculan a partir de los movimientos, no se guardan como números sueltos.</li>
                   <li><b>Cada cobro con su origen</b>Cada cobro queda registrado junto con el cambio de estado que lo origina, como el alta de una internación o la entrega de un baño.</li>
                   <li><b>Datos en el local</b>Se instala con un solo .exe, funciona sin internet y tiene copias de seguridad que se restauran desde el mismo sistema.</li>
-                  <li><b>148 pruebas automatizadas</b>Sobre una base SQLite con Drizzle y validación con Zod.</li>
+                  <li><b>Pruebas automatizadas</b>Sobre una base SQLite con Drizzle y validación con Zod.</li>
                 </ul>
                   </div>
                 </div>
                 <div>
                   <h4>Tecnologías</h4>
                   <ul class="chips"><li class="chip">Electron</li><li class="chip">React</li><li class="chip">TypeScript</li><li class="chip">Tailwind CSS</li><li class="chip">SQLite · Drizzle</li><li class="chip">Zod</li></ul>
+                  <a class="pj-code" href="https://github.com/Gabicrdz/veterinarias" target="_blank" rel="noopener">Ver el código en GitHub<span aria-hidden="true"> ↗</span></a>
                 </div>
               </div>
             </div>
@@ -831,13 +837,14 @@ footer .wrap { padding-block: 28px; display: flex; flex-wrap: wrap; justify-cont
                   <li><b>Procesos separados y permisos por canal</b>Electron dividido en main, preload y renderer, con un contrato tipado de IPC y permisos por canal: libre, sesión o administrador.</li>
                   <li><b>Reglas protegidas dos veces</b>En el código y con triggers SQL que impiden superponer turnos aunque alguien saltee la interfaz.</li>
                   <li><b>Todo auditable</b>Dinero en centavos y bajas lógicas, así nada se borra. PIN con scrypt y copias con la API nativa de SQLite.</li>
-                  <li><b>112 pruebas automatizadas</b>Con Vitest, más verificación de la interfaz con Playwright. Los reportes se prueban con fechas controladas.</li>
+                  <li><b>Pruebas automatizadas</b>Con Vitest, más verificación de la interfaz con Playwright. Los reportes se prueban con fechas controladas.</li>
                 </ul>
                   </div>
                 </div>
                 <div>
                   <h4>Tecnologías</h4>
                   <ul class="chips"><li class="chip">Electron</li><li class="chip">Electron Forge</li><li class="chip">Vite</li><li class="chip">React 19</li><li class="chip">TypeScript</li><li class="chip">Tailwind CSS 4</li><li class="chip">shadcn/ui</li><li class="chip">SQLite · Drizzle</li><li class="chip">Zod</li><li class="chip">TanStack Query</li><li class="chip">Vitest</li><li class="chip">Playwright</li></ul>
+                  <a class="pj-code" href="https://github.com/Gabicrdz/alquiler-canchas" target="_blank" rel="noopener">Ver el código en GitHub<span aria-hidden="true"> ↗</span></a>
                 </div>
               </div>
             </div>
@@ -975,13 +982,14 @@ footer .wrap { padding-block: 28px; display: flex; flex-wrap: wrap; justify-cont
                   <li><b>Stock que se puede auditar</b>No se guarda como un número suelto: se calcula a partir de todos los movimientos, así siempre se sabe de dónde sale.</li>
                   <li><b>Sin errores de redondeo</b>El dinero y las cantidades se guardan como enteros, incluso en las ventas al gramo.</li>
                   <li><b>Actualizaciones seguras</b>La base de datos se actualiza sola con migraciones y la ventana de la aplicación está aislada por seguridad.</li>
-                  <li><b>40 pruebas automatizadas</b>Escritas con node:test, revisan el funcionamiento del sistema de forma automática.</li>
+                  <li><b>Pruebas automatizadas</b>Escritas con node:test, revisan el funcionamiento del sistema de forma automática.</li>
                 </ul>
                   </div>
                 </div>
                 <div>
                   <h4>Tecnologías</h4>
                   <ul class="chips"><li class="chip">Electron</li><li class="chip">JavaScript</li><li class="chip">HTML</li><li class="chip">CSS</li><li class="chip">SQLite · better-sqlite3</li><li class="chip">node:test</li></ul>
+                  <a class="pj-code" href="https://github.com/Gabicrdz/Stock" target="_blank" rel="noopener">Ver el código en GitHub<span aria-hidden="true"> ↗</span></a>
                 </div>
               </div>
             </div>
@@ -1041,12 +1049,13 @@ footer .wrap { padding-block: 28px; display: flex; flex-wrap: wrap; justify-cont
                   <h4>Aspectos técnicos</h4>
                   <ul class="challenges two">
                   <li><b>Arquitectura segura de Electron</b>La interfaz no accede a los archivos ni a internet: todo pasa por canales IPC validados.</li>
-                  <li><b>Actualizaciones sin perder datos</b>La base de datos usa migraciones versionadas, y el sistema tiene 45 pruebas automatizadas.</li>
+                  <li><b>Actualizaciones sin perder datos</b>La base de datos usa migraciones versionadas, y el sistema tiene pruebas automatizadas.</li>
                 </ul>
                 </div>
                 <div>
                   <h4>Tecnologías</h4>
                   <ul class="chips"><li class="chip">Electron</li><li class="chip">JavaScript</li><li class="chip">HTML</li><li class="chip">CSS</li><li class="chip">SQLite · better-sqlite3</li><li class="chip">Electron Forge</li><li class="chip">node:test</li></ul>
+                  <a class="pj-code" href="https://github.com/Gabicrdz/Gimnasios" target="_blank" rel="noopener">Ver el código en GitHub<span aria-hidden="true"> ↗</span></a>
                 </div>
               </div>
             </div>
@@ -1093,6 +1102,7 @@ footer .wrap { padding-block: 28px; display: flex; flex-wrap: wrap; justify-cont
                   <div>
                     <h4>Tecnologías</h4>
                     <ul class="chips"><li class="chip">TypeScript</li><li class="chip">Next.js</li><li class="chip">NestJS</li><li class="chip">Prisma</li><li class="chip">Tailwind CSS</li><li class="chip">Vercel</li></ul>
+                  <a class="pj-code" href="https://github.com/Gabicrdz/Competencias-Ironbox" target="_blank" rel="noopener">Ver el código en GitHub<span aria-hidden="true"> ↗</span></a>
                   </div>
                 </div>
               </div>
